@@ -83,3 +83,7 @@ C:\Users\trong\Desktop\ChoiGiDoStudio\Hocgido2T\obj\Debug\Hocgido2T.csproj.CoreC
 C:\Users\trong\Desktop\ChoiGiDoStudio\Hocgido2T\obj\Debug\Hocgido2T.csproj.CopyComplete
 C:\Users\trong\Desktop\ChoiGiDoStudio\Hocgido2T\obj\Debug\Hocgido2T.dll
 C:\Users\trong\Desktop\ChoiGiDoStudio\Hocgido2T\obj\Debug\Hocgido2T.pdb
+C:\Users\trong\Desktop\ChoiGiDoStudio\Hocgido2T\bin\EntityFramework.dll
+C:\Users\trong\Desktop\ChoiGiDoStudio\Hocgido2T\bin\EntityFramework.SqlServer.dll
+C:\Users\trong\Desktop\ChoiGiDoStudio\Hocgido2T\bin\EntityFramework.xml
+C:\Users\trong\Desktop\ChoiGiDoStudio\Hocgido2T\bin\EntityFramework.SqlServer.xml
