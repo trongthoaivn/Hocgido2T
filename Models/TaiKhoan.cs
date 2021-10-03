@@ -27,6 +27,9 @@ namespace Hocgido2T.Models
         [StringLength(150)]
         public string Email { get; set; }
 
+        [StringLength(3)]
+        public string Quyen { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<NguoiDung> NguoiDungs { get; set; }
     }

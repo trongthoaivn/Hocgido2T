@@ -142,13 +142,14 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Class\Hson.cs" />
+    <Compile Include="Controllers\EmailAPIController.cs" />
     <Compile Include="Controllers\UserAPIController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\ViewModels\BaiHocViewModel.cs" />
     <Compile Include="Controllers\ViewModels\BinhLuanViewModel.cs" />
     <Compile Include="Controllers\ViewModels\CauHoiViewModel.cs" />
     <Compile Include="Controllers\ViewModels\DapAnViewModel.cs" />
-    <Compile Include="Controllers\ViewModels\DSBaiHocViewModel.cs" />
     <Compile Include="Controllers\ViewModels\KhoaHocDKViewModel.cs" />
     <Compile Include="Controllers\ViewModels\KhoaHocViewModel.cs" />
     <Compile Include="Controllers\ViewModels\KiemTraViewModel.cs" />
@@ -164,7 +165,6 @@
     <Compile Include="Models\CauHoi.cs" />
     <Compile Include="Models\DapAn.cs" />
     <Compile Include="Models\dbhocgido.cs" />
-    <Compile Include="Models\DSBaiHoc.cs" />
     <Compile Include="Models\KhoaHoc.cs" />
     <Compile Include="Models\KhoaHocDK.cs" />
     <Compile Include="Models\KiemTra.cs" />
@@ -211,6 +211,8 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\User\Register.cshtml" />
+    <Content Include="Views\User\Information.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

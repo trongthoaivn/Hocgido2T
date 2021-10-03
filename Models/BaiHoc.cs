@@ -34,12 +34,12 @@ namespace Hocgido2T.Models
         public string LuocHoc { get; set; }
 
         [StringLength(8)]
-        public string MaDS { get; set; }
+        public string MaKH { get; set; }
+
+        public virtual KhoaHoc KhoaHoc { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<KiemTra> KiemTras { get; set; }
-
-        public virtual DSBaiHoc DSBaiHoc { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BinhLuan> BinhLuans { get; set; }

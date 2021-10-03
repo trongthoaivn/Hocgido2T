@@ -16,6 +16,7 @@ namespace Hocgido2T.Controllers
             view.TenTK = obj.TenTK;
             view.MatKhau = obj.MatKhau;
             view.Email = obj.Email;
+            view.Quyen = obj.Quyen;
             return view;
         }
         public static NguoiDungViewModel toJson(NguoiDung obj)
@@ -71,15 +72,7 @@ namespace Hocgido2T.Controllers
             view.MaND = obj.MaND;
             return view;
         }
-        public static DSBaiHocViewModel toJson(DSBaiHoc obj)
-        {
-            DSBaiHocViewModel view = new DSBaiHocViewModel();
-            view.MaDS = obj.MaDS;
-            view.SoBaiHoc = obj.SoBaiHoc;
-            view.TenBaiHoc = obj.TenBaiHoc;
-            view.MaKH = obj.MaKH;
-            return view;
-        }
+  
         public static DapAnViewModel toJson(DapAn obj)
         {
             DapAnViewModel view = new DapAnViewModel();
@@ -117,7 +110,7 @@ namespace Hocgido2T.Controllers
             view.LyThuyet = obj.LyThuyet;
             view.CodeMau = obj.CodeMau;
             view.LuocHoc = obj.LuocHoc;
-            view.MaDS = obj.MaDS;
+            view.MaKH = obj.MaKH;
             return view;
         }
     }

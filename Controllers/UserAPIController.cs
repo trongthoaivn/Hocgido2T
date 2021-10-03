@@ -98,6 +98,7 @@ namespace Hocgido2T.Controllers
                     tk_new.MaTK = "TK" + day + Min + sec;
                     tk_new.TenTK = taiKhoan.TenTK;
                     tk_new.MatKhau = taiKhoan.MatKhau;
+                    tk_new.Quyen = taiKhoan.Quyen;
                     tk_new.Email = taiKhoan.Email;
                     nd_new.MaND = "ND" + day + Min + sec;
                     nd_new.MaTK = tk_new.MaTK;

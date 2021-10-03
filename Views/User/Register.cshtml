@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewBag.Title = "Register";
+}
+
+<h2>Register</h2>
+<div >
+    <p>Tên tài khoản</p>
+    <input type="text" id="username" />
+    <p>Mật khẩu</p>
+    <input type="text" id="password" />
+    <p>Email</p>
+    <input type="text" id="email" />
+    <button onclick="Dang_ky()">Đăng ký</button>
+    <p id="notification"></p>
+</div>
+
+<script >
+    var us = document.getElementById("username")
+    var pw = document.getElementById("password")
+    var email = document.getElementById("email")
+
+    function Dang_ky() {
+        $.ajax({
+            type: "POST",
+            dataType: "json",
+            url:"../api/dang_ky_user",
+            data: {
+                MaTK: "",
+                TenTK: us.value,
+                MatKhau: pw.value,
+                Email: email.value,
+                Quyen :"115"
+            },
+            success: function (data) {
+                if (data.msg == "error") {
+                    document.getElementById("notification").innerHTML ="Đã có lỗi xảy ra"
+                } else if (data.msg == "user_exist") {
+                    document.getElementById("notification").innerHTML="Người dùng đã tồn tại"
+                } else {
+                    document.getElementById("notification").innerHTML = "Đăng ký thành công đang gửi mã xác nhận"
+                    Xac_nhan_tai_khoan(data.msg)
+                }
+            }
+        })
+    }
+
+    function Xac_nhan_tai_khoan(Mand) {
+       
+        $.ajax({
+            type: "GET",
+           /* dataType: "text",*/
+            url: "../api/xac_nhan_qua_mail",
+            data: {
+                MaND: Mand,
+                Gmail: email.value
+            },
+            success: function (data) {
+                if (data.msg == "ok") {
+                    document.getElementById("notification").innerHTML = "Đã gửi mail xác nhận"
+                } else
+                    document.getElementById("notification").innerHTML = "Địa chỉ mail không tồn tại"
+            }
+        })
+    }
+   
+</script>
+
+
+

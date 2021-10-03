@@ -17,5 +17,7 @@ namespace Hocgido2T.Controllers.ViewModels
 
         public string Email { get; set; }
 
+        public string Quyen { get; set; }
+
     }
 }

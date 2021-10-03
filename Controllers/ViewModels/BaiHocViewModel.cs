@@ -22,7 +22,7 @@ namespace Hocgido2T.Controllers.ViewModels
         public string LuocHoc { get; set; }
 
 
-        public string MaDS { get; set; }
+        public string MaKH { get; set; }
 
     }
 }

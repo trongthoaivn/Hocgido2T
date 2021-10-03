@@ -16,7 +16,6 @@ namespace Hocgido2T.Models
         public virtual DbSet<BinhLuan> BinhLuans { get; set; }
         public virtual DbSet<CauHoi> CauHois { get; set; }
         public virtual DbSet<DapAn> DapAns { get; set; }
-        public virtual DbSet<DSBaiHoc> DSBaiHocs { get; set; }
         public virtual DbSet<KhoaHoc> KhoaHocs { get; set; }
         public virtual DbSet<KhoaHocDK> KhoaHocDKs { get; set; }
         public virtual DbSet<KiemTra> KiemTras { get; set; }
@@ -36,7 +35,7 @@ namespace Hocgido2T.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<BaiHoc>()
-                .Property(e => e.MaDS)
+                .Property(e => e.MaKH)
                 .IsUnicode(false);
 
             modelBuilder.Entity<BinhLuan>()
@@ -65,14 +64,6 @@ namespace Hocgido2T.Models
 
             modelBuilder.Entity<DapAn>()
                 .Property(e => e.MaCauHoi)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<DSBaiHoc>()
-                .Property(e => e.MaDS)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<DSBaiHoc>()
-                .Property(e => e.MaKH)
                 .IsUnicode(false);
 
             modelBuilder.Entity<KhoaHoc>()
@@ -135,6 +126,10 @@ namespace Hocgido2T.Models
 
             modelBuilder.Entity<TaiKhoan>()
                 .Property(e => e.Email)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<TaiKhoan>()
+                .Property(e => e.Quyen)
                 .IsUnicode(false);
 
             modelBuilder.Entity<TinhTrangBH>()

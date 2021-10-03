@@ -12,7 +12,7 @@ namespace Hocgido2T.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public KhoaHoc()
         {
-            DSBaiHocs = new HashSet<DSBaiHoc>();
+            BaiHocs = new HashSet<BaiHoc>();
             KhoaHocDKs = new HashSet<KhoaHocDK>();
         }
 
@@ -28,7 +28,7 @@ namespace Hocgido2T.Models
         public int? LuotDK { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DSBaiHoc> DSBaiHocs { get; set; }
+        public virtual ICollection<BaiHoc> BaiHocs { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<KhoaHocDK> KhoaHocDKs { get; set; }
