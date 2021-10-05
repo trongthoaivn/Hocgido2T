@@ -20,14 +20,14 @@ namespace Hocgido2T.Controllers
             try
             {
                 msg.Subject = "Xác nhận tài khoản Hocgido2T của bạn";
-                msg.Body = "Http://"+ConfigurationManager.AppSettings["Hostname"].ToString()+ "/User/Information?MaND="+MaND;
+                msg.Body = "http://"+ConfigurationManager.AppSettings["Hostname"].ToString()+ "/User/Information?MaND="+MaND;
                 msg.From = new MailAddress("trongthoai001@gmail.com");
                 msg.To.Add(Gmail);
                 msg.IsBodyHtml = true;
                 client.Host = "smtp.gmail.com";
                 System.Net.NetworkCredential basicauthenticationinfo = new System.Net.NetworkCredential("trongthoai001@gmail.com", "18008198");
                 client.Port = int.Parse("587");
-                client.EnableSsl = true;
+                client.EnableSsl = false;
                 client.UseDefaultCredentials = false;
                 client.Credentials = basicauthenticationinfo;
                 client.DeliveryMethod = SmtpDeliveryMethod.Network;
@@ -41,7 +41,8 @@ namespace Hocgido2T.Controllers
             {
                 return Json(new
                 {
-                    msg = "error"
+                    msg = "error",
+                    ex = ex.Message
                 });
             }
         }
