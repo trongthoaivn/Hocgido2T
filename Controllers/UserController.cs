@@ -16,6 +16,10 @@ namespace Hocgido2T.Controllers
         {
             return View();
         }
+        public ActionResult Login()
+        {
+            return View();
+        }
         [HttpGet]
         public ActionResult Information(string MaND)
         {

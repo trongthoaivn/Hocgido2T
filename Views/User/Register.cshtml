@@ -1,42 +1,96 @@
-﻿
-@{
-    ViewBag.Title = "Register";
-}
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/Content/register.css"/>
+</head>
+<body>
+    <!-- Form -->
+    <div class="container">
+        <div class="form">
+            <div class="heading">
+                <!--<img src="logo.png" class="logo">-->
+                <h1>Đăng ký</h1>
+            </div>
+            <div class="wrap">
+                <label>Họ tên</label>
+                <input type="text" id="fullname" />
+                <span class="focus-input"></span>
+            </div>
+            <div class="wrap">
+                <label>Tên tài khoản</label>
+                <input type="text" id="username" />
+                <span class="focus-input"></span>
+            </div>
 
-<h2>Register</h2>
-<div >
-    <p>Tên tài khoản</p>
-    <input type="text" id="username" />
-    <p>Mật khẩu</p>
-    <input type="text" id="password" />
-    <p>Email</p>
-    <input type="text" id="email" />
-    <button onclick="Dang_ky()">Đăng ký</button>
-    <p id="notification"></p>
-</div>
+            <div class="wrap">
+                <label>Ngày sinh</label>
+                <input type="date" id="datepicker" />
+                <span class="focus-input"></span>
+            </div>
+            <div class="wrap">
+                <label>Số điện thoại</label>
+                <input type="number" id="phone" />
+                <span class="focus-input"></span>
+            </div>
+            <div class="wrap">
+                <label>Địa chỉ</label>
+                <input type="text" id="address" />
+                <span class="focus-input"></span>
+            </div>
+            <div class="wrap">
+                <label>Email</label>
+                <input type="email" id="email" />
+                <span class="focus-input"></span>
+            </div>
+            <div class="wrap">
+                <label>Mật khẩu</label>
+                <input type="password" id="password" />
+                <span class="focus-input"></span>
+            </div>
+            <button onclick="Dang_ky()" class="btn">Đăng ký</button>
+            <p id="notification"></p>
+        </div>
+        <div class="image">
+            <img src="~/images/img.jpg" class="img" alt="">
+        </div>
+        <p id="notification"></p>
+    </div>
+</body>
+</html>
 
-<script >
+<!-- JS -->
+<script>
+    var fn = document.getElementById("fullname")
     var us = document.getElementById("username")
-    var pw = document.getElementById("password")
+    var dt = document.getElementById("datepicker")
+    var ph = document.getElementById("phone")
+    var add = document.getElementById("address")
     var email = document.getElementById("email")
+    var pw = document.getElementById("password")
 
     function Dang_ky() {
         $.ajax({
             type: "POST",
             dataType: "json",
-            url:"../api/dang_ky_user",
+            url: "../api/dang_ky_user",
             data: {
                 MaTK: "",
+                HoTen: fn.value,
                 TenTK: us.value,
-                MatKhau: pw.value,
+                NgaySinh: dt.value,
+                Sdt: ph.value,
+                DiaChi: add.value,
                 Email: email.value,
-                Quyen :"115"
+                MatKhau: pw.value,
+                Quyen: "115"
             },
             success: function (data) {
                 if (data.msg == "error") {
-                    document.getElementById("notification").innerHTML ="Đã có lỗi xảy ra"
+                    document.getElementById("notification").innerHTML = "Đã có lỗi xảy ra"
                 } else if (data.msg == "user_exist") {
-                    document.getElementById("notification").innerHTML="Người dùng đã tồn tại"
+                    document.getElementById("notification").innerHTML = "Người dùng đã tồn tại"
                 } else {
                     document.getElementById("notification").innerHTML = "Đăng ký thành công đang gửi mã xác nhận"
                     Xac_nhan_tai_khoan(data.msg)
@@ -46,10 +100,10 @@
     }
 
     function Xac_nhan_tai_khoan(Mand) {
-       
+
         $.ajax({
             type: "GET",
-           /* dataType: "text",*/
+            /* dataType: "text",*/
             url: "../api/xac_nhan_qua_mail",
             data: {
                 MaND: Mand,
@@ -64,7 +118,6 @@
             }
         })
     }
-   
 </script>
 
 
