@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Web;
 using System.Web.Http;
+using Hocgido2T.Class;
 using Hocgido2T.Controllers.ViewModels;
 using Hocgido2T.Models;
 
@@ -20,6 +22,8 @@ namespace Hocgido2T.Controllers
         string sec = DateTime.Now.ToString("ss");
 
         public dbhocgido db = new dbhocgido();
+
+        Crypto cryto = new Crypto();
 
         //Danh sach user
         [HttpGet]
@@ -218,10 +222,15 @@ namespace Hocgido2T.Controllers
                 var tk = db.TaiKhoans.First(e => e.TenTK.Equals(taiKhoan.TenTK) && e.MatKhau.Equals(taiKhoan.MatKhau));
                 if(tk != null)
                 {
+                    HttpCookie cookie = new HttpCookie("userID");
+                    DateTime now = DateTime.Now;
+                    cookie.Value = cryto.Encrypt(tk.MaTK);
+                    cookie.Expires = now.AddHours(1);
+                    HttpContext.Current.Response.Cookies.Add(cookie);
                     return Json(new
                     {
                         msg = "ok",
-                        tk = tk.MaTK
+                       
                     });
                 }else
                     return Json(new

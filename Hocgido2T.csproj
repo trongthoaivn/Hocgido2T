@@ -141,6 +141,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Class\Crypto.cs" />
     <Compile Include="Class\Hson.cs" />
     <Compile Include="Controllers\EmailAPIController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -176,6 +177,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\about.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -186,13 +188,15 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="images\img.jpg" />
+    <Content Include="images\user.png" />
+    <Content Include="Scripts\about.js" />
     <Content Include="Scripts\bootbox.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="libman.json" />
     <None Include="Properties\PublishProfiles\Default Settings.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
-    <Content Include="Scripts\crypto-js.min.js" />
+    <Content Include="Scripts\core.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
@@ -203,6 +207,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\login.js" />
+    <Content Include="Scripts\md5.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\register.js" />
     <Content Include="Scripts\sweetalert.min.js" />
@@ -223,8 +228,9 @@
     <Content Include="Views\Users\Register.cshtml" />
     <Content Include="Views\Users\Information.cshtml" />
     <Content Include="Views\Users\Login.cshtml" />
-    <Content Include="Views\Manage\User.cshtml" />
     <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Shared\_Dashboard.cshtml" />
+    <Content Include="Views\Manage\MyProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

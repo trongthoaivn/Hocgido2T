@@ -1,0 +1,56 @@
+﻿@model Hocgido2T.Models.NguoiDung
+
+@{
+    ViewBag.Title = "MyProfile";
+    Layout = "~/Views/Shared/_Dashboard.cshtml";
+}
+
+<h2>MyProfile</h2>
+
+<div>
+    <h4>NguoiDung</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.HoTen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HoTen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NgaySinh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgaySinh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sdt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sdt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DiaChi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiaChi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaTK)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaTK)
+        </dd>
+
+    </dl>
+</div>
+
