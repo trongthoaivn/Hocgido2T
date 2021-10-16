@@ -220,7 +220,8 @@ namespace Hocgido2T.Controllers
                 {
                     return Json(new
                     {
-                        msg = "ok"
+                        msg = "ok",
+                        tk = tk.MaTK
                     });
                 }else
                     return Json(new

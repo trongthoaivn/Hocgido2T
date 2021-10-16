@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace Hocgido2T.Controllers
 {
-    public class UserController : Controller
+    public class UsersController : Controller
     {
         // GET: User
         public dbhocgido db = new dbhocgido();

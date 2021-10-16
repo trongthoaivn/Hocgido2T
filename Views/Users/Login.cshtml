@@ -4,6 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="~/Content/login.css" />
+    <script src="~/Scripts/jquery-3.4.1.js" type="text/javascript"></script>
+    <script src="~/Scripts/crypto-js.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/sweetalert.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/login.js" type="text/javascript"></script>
+
 </head>
 <body>
     <div class="container">
@@ -22,9 +27,9 @@
                 <input type="password" id="password" />
                 <span class="focus-input"></span>
             </div>
-            <a href="#">Tạo tài khoản</a>
-            <a href="#">Quên mật khẩu?</a>
-            <button class="btn">Đăng nhập</button>
+            <a href="@Url.Action("Register","Users")" >Tạo tài khoản</a>
+            <a href="#">Quên mật khẩu ?</a>
+            <button class="btn" onclick="Dangnhap()" >Đăng nhập</button>
         </div>
         <div class="image">
             <img src="~/images/img.jpg" class="img" alt="">
