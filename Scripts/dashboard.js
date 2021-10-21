@@ -41,4 +41,5 @@ $(document).ready(function () {
     $("#btn_dangxuat").click(function () {
         Dangxuat()
     })
+
 });

@@ -143,6 +143,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Class\Crypto.cs" />
     <Compile Include="Class\Hson.cs" />
+    <Compile Include="Controllers\AdminManageController.cs" />
     <Compile Include="Controllers\EmailAPIController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\UserAPIController.cs" />
@@ -177,19 +178,26 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\about.css" />
+    <Content Include="Content\404page.css" />
+    <Content Include="Content\dashboard-admin.css" />
+    <Content Include="Content\dashboard.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\dataTables.bootstrap4.min.css" />
     <Content Include="Content\login.css" />
     <Content Include="Content\register.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="images\img.jpg" />
+    <Content Include="images\Logo_ngang.png" />
+    <Content Include="images\Logo_tron.png" />
+    <Content Include="images\Logo_vuong.png" />
+    <Content Include="images\p404.png" />
     <Content Include="images\user.png" />
-    <Content Include="Scripts\about.js" />
+    <Content Include="Scripts\dashboard.js" />
     <Content Include="Scripts\bootbox.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -202,13 +210,17 @@
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.dataTables.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\login-admin.js" />
     <Content Include="Scripts\login.js" />
+    <Content Include="Scripts\manage-users.js" />
     <Content Include="Scripts\md5.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\popper.min.js" />
     <Content Include="Scripts\register.js" />
     <Content Include="Scripts\sweetalert.min.js" />
     <Content Include="Web.config" />
@@ -231,6 +243,10 @@
     <Content Include="Views\Manage\Index.cshtml" />
     <Content Include="Views\Shared\_Dashboard.cshtml" />
     <Content Include="Views\Manage\MyProfile.cshtml" />
+    <Content Include="Views\Shared\_DashboardAdmin.cshtml" />
+    <Content Include="Views\AdminManage\Index.cshtml" />
+    <Content Include="Views\AdminManage\Login.cshtml" />
+    <Content Include="Views\AdminManage\ManageUsers.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

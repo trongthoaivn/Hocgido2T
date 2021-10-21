@@ -1,0 +1,111 @@
+﻿
+@{
+    ViewBag.Title = "ManageUsers";
+    Layout = "~/Views/Shared/_DashboardAdmin.cshtml";
+}
+<script src="~/Scripts/manage-users.js"></script>
+
+<h2>Danh sách người dùng </h2>
+<
+<div class="table-responsive" style="width:600px; height:500px">
+    <table class="table table-bordered table-hover table-fixed" id="table_users" >
+        <thead style="text-align:center;">
+            <tr>
+                <th>#</th>
+                <th>Tên tài khoản</th>
+                <th>Chi tiết</th>
+            </tr>
+        </thead>
+        <tbody id="tbl_users" style=" overflow-y:auto ">
+        </tbody>
+    </table>
+    <!-- Modal thông tin chi tiết -->
+
+</div>
+<div class="modal fade " id="form_user_information" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+    <div class="modal-dialog  modal-dialog-centered modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalScrollableTitle">Thông tin tài khoản</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="wrap">
+                    <label>Họ tên</label>
+                    <input class="form-control" type="text" id="txt_fullname" />
+                    <span class="focus-input"></span>
+                </div>
+
+                <div class="wrap">
+                    <label>Ngày sinh</label>
+                    <input class="form-control" type="date" id="datepicker" />
+                    <span class="focus-input"></span>
+                </div>
+                <div class="wrap">
+                    <label>Số điện thoại</label>
+                    <input class="form-control" type="text" id="txt_phone" />
+                    <span class="focus-input"></span>
+                </div>
+                <div class="wrap">
+                    <label>Địa chỉ</label>
+                    <input class="form-control" type="text" id="txt_address" />
+                    <span class="focus-input"></span>
+                </div>
+                <div class="wrap">
+                    <label>Email</label>
+                    <input class="form-control" type="email" id="txt_email" />
+                    <span class="focus-input"></span>
+                </div>
+                <div class="wrap">
+                    <label>Tên tài khoản</label>
+                    <input class="form-control" type="text" id="txt_username" />
+                    <span class="focus-input"></span>
+                </div>
+                <div class="wrap">
+                    <label>Mật khẩu</label>
+                    <input class="form-control" type="password" id="txt_password" />
+                    <span class="focus-input"></span>
+                </div>
+
+                <label>Quyền</label>
+                <select class="custom-select" id="select_quyen">
+                    <option value="115">Học viên</option>
+                    <option value="114">Giáo Viên</option>
+                    <option value="113">Admin</option>
+                </select>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="save()">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .table-responsive {
+        overflow-y: auto;
+        height: 110px;
+    }
+
+        .table-responsive thead th {
+            position: sticky;
+            top: 0;
+        }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th,
+    td {
+        padding: 8px 15px;
+        border: 2px solid #529432;
+    }
+
+    th {
+        background: #F8F9FA;
+    }
+</style>

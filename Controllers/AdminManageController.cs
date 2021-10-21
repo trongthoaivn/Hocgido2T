@@ -4,60 +4,58 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-
 using System.Web.Mvc;
 
 namespace Hocgido2T.Controllers
 {
-    public class ManageController : Controller
+    public class AdminManageController : Controller
     {
-        // GET: Manage
         public dbhocgido db = new dbhocgido();
         Crypto cryto = new Crypto();
-
+        // GET: AdminManage
         public ActionResult Index()
         {
-           
             try
             {
                 HttpCookie cookie = HttpContext.Request.Cookies.Get("userID");
                 String maTK = cryto.Decrypt(cookie.Value);
-                NguoiDung nd = db.NguoiDungs.FirstOrDefault(p => p.MaTK.Equals(maTK)&&p.TaiKhoan.Quyen.Equals("115"));
-                
-                if (nd != null)
-                {
-                    return View();
-                }
-                else
-                    return RedirectToAction("Login", "Users");
-            }
-            catch(Exception e)
-            {
-                return RedirectToAction("Login", "Users");
-            }
-           
-        }
+                NguoiDung nd = db.NguoiDungs.FirstOrDefault(p => p.MaTK.Equals(maTK) && ( p.TaiKhoan.Quyen.Equals("113")||p.TaiKhoan.Quyen.Equals("114")));
 
-        public ActionResult MyProfile()
-        {
-            try
-            {
-                HttpCookie cookie = HttpContext.Request.Cookies.Get("userID");
-                String maTK = cryto.Decrypt(cookie.Value);
-                NguoiDung nd = db.NguoiDungs.FirstOrDefault(p => p.MaTK.Equals(maTK) && p.TaiKhoan.Quyen.Equals("115"));
                 if (nd != null)
                 {
                     return View(nd);
                 }
                 else
-                    return RedirectToAction("Login", "Users");
+                    return RedirectToAction("Login", "AdminManage");
             }
             catch (Exception e)
             {
-                return RedirectToAction("Login", "Users");
+                return RedirectToAction("Login", "AdminManage");
             }
         }
+        public ActionResult Login()
+        {
+            return View();
+        }
+        public ActionResult ManageUsers()
+        {
+            try
+            {
+                HttpCookie cookie = HttpContext.Request.Cookies.Get("userID");
+                String maTK = cryto.Decrypt(cookie.Value);
+                NguoiDung nd = db.NguoiDungs.FirstOrDefault(p => p.MaTK.Equals(maTK) && (p.TaiKhoan.Quyen.Equals("113") || p.TaiKhoan.Quyen.Equals("114")));
 
-
+                if (nd != null)
+                {
+                    return View(nd);
+                }
+                else
+                    return RedirectToAction("Login", "AdminManage");
+            }
+            catch (Exception e)
+            {
+                return RedirectToAction("Login", "AdminManage");
+            }
+        }
     }
 }

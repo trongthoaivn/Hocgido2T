@@ -25,6 +25,21 @@ namespace Hocgido2T.Controllers
 
         Crypto cryto = new Crypto();
 
+
+        [HttpGet]
+        [Route("api/Decrypt")]
+        public IHttpActionResult Decrypt(String msg)
+        {
+            return Json(new { msg = cryto.Decrypt(msg) });
+        }
+
+        [HttpGet]
+        [Route("api/Encrypt")]
+        public IHttpActionResult Encrypt(String msg)
+        {
+            return Json(new { msg = cryto.Encrypt(msg)});
+        }
+
         //Danh sach user
         [HttpGet]
         [Route("api/ds_taikhoan")]
@@ -44,7 +59,8 @@ namespace Hocgido2T.Controllers
             } catch (Exception e)
             {
                 return Json(new {
-                    msg = "error"
+                    msg = "error",
+                    error=e.Message
                 });
 
             }
@@ -62,6 +78,7 @@ namespace Hocgido2T.Controllers
                 {
                     tk.MatKhau = taiKhoan.MatKhau;
                     tk.Email = taiKhoan.Email;
+                    tk.Quyen = taiKhoan.Quyen;
                     db.SaveChanges();
                     return Json(new
                     {
@@ -77,7 +94,8 @@ namespace Hocgido2T.Controllers
             } catch (Exception e)
             {
                 return Json(new {
-                    msg = "error"
+                    msg = "error",
+                    error = e.Message
                 });
             }
         }
@@ -118,7 +136,8 @@ namespace Hocgido2T.Controllers
             } catch (Exception e)
             {
                 return Json(new {
-                    msg = "error"
+                    msg = "error",
+                    error = e.Message
                 });
 
             }
@@ -152,7 +171,8 @@ namespace Hocgido2T.Controllers
             {
                 return Json(new
                 {
-                    msg = "error"
+                    msg = "error",
+                    error = e.Message
                 });
             }
         }
@@ -180,7 +200,8 @@ namespace Hocgido2T.Controllers
             {
                 return Json(new
                 {
-                    msg = "error"
+                    msg = "error",
+                    error = e.Message
                 });
 
             }
@@ -208,7 +229,8 @@ namespace Hocgido2T.Controllers
             {
                 return Json(new
                 {
-                    msg = "error"
+                    msg = "error",
+                    error = e.Message
                 });
             }
         }
@@ -242,7 +264,75 @@ namespace Hocgido2T.Controllers
             {
                 return Json(new
                 {
-                    msg = "error"
+                    msg = "error",
+                    error = e.Message
+                });
+            }
+        }
+        //Xoa nguoi dung
+        [HttpGet]
+        [Route("api/xoa_nguoidung")]
+        public IHttpActionResult Xoa_nguoi_dung(String Mand)
+        {
+            String code = cryto.Decrypt(Mand);
+            
+            try
+            {
+                var user = db.NguoiDungs.First(e => e.MaND.Equals(code));
+                if (user != null)
+                {
+                    var tk = db.TaiKhoans.First(e => e.MaTK.Equals(user.MaTK));
+                    var TtBH = db.TinhTrangBHs.Where(e => e.MaND.Equals(user.MaND)).ToList();
+                    var LuuBH = db.LuuBaiHocs.Where(e => e.MaND.Equals(user.MaND)).ToList();
+                    var KhDK = db.KhoaHocDKs.Where(e => e.MaND.Equals(user.MaND)).ToList();
+                    var Bl = db.BinhLuans.Where(e => e.MaND.Equals(user.MaND)).ToList();
+
+                    if (TtBH != null)
+                    {
+                        foreach (var it in TtBH)
+                        {
+                            db.TinhTrangBHs.Remove(it);
+                        }
+                    }
+                    if (LuuBH != null)
+                    {
+                        foreach (var it in LuuBH)
+                        {
+                            db.LuuBaiHocs.Remove(it);
+                        }
+                    }
+
+                    if ( KhDK != null)
+                    {
+                        foreach (var it in KhDK)
+                        {
+                            db.KhoaHocDKs.Remove(it);
+                        }
+                    }
+                    if (Bl != null)
+                    {
+                        foreach (var it in Bl)
+                        {
+                            db.BinhLuans.Remove(it);
+                        }
+                    }
+                    if(tk!=null) db.TaiKhoans.Remove(tk);
+
+                    db.NguoiDungs.Remove(user);
+                    
+                    db.SaveChanges();
+                }
+                return Json(new
+                {
+                    msg = "ok",
+                });
+            }
+            catch (Exception e)
+            {
+                return Json(new
+                {
+                    msg = "error",
+                    error=e.Message
                 });
             }
         }
