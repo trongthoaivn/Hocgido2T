@@ -185,6 +185,7 @@ namespace Hocgido2T.Controllers
             try
             {
                 List<NguoiDung> list = db.NguoiDungs.ToList();
+
                 List<NguoiDungViewModel> nguoiDungViewModels = new List<NguoiDungViewModel>();
                 foreach (NguoiDung tk in list)
                 {

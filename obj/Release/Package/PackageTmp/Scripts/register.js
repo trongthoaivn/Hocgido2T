@@ -64,7 +64,7 @@ function Xacnhanthongtin(Mand) {
             },
             success: function (data) {
                 if (data.msg == "ok") {
-                    swal("", "Đăng ký thành công!", "success").then((value) => {
+                    swal("Thông báo", "Đăng ký thành công!", "success").then((value) => {
                         window.location = "/Users/Login"
                     });
 
