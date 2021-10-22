@@ -20,12 +20,7 @@ namespace Hocgido2T.Controllers
         {
             return View();
         }
-        [HttpGet]
-        public ActionResult Information(string MaND)
-        {
-            NguoiDung nd = db.NguoiDungs.First(e => e.MaND.Equals(MaND));
-            return View(nd);
-        }
+        
 
 
     }

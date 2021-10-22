@@ -188,6 +188,7 @@
     <Content Include="Content\dataTables.bootstrap4.min.css" />
     <Content Include="Content\login.css" />
     <Content Include="Content\register.css" />
+    <Content Include="Content\user_profile.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -223,6 +224,7 @@
     <Content Include="Scripts\popper.min.js" />
     <Content Include="Scripts\register.js" />
     <Content Include="Scripts\sweetalert.min.js" />
+    <Content Include="Scripts\userprofile.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -238,7 +240,6 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Users\Register.cshtml" />
-    <Content Include="Views\Users\Information.cshtml" />
     <Content Include="Views\Users\Login.cshtml" />
     <Content Include="Views\Manage\Index.cshtml" />
     <Content Include="Views\Shared\_Dashboard.cshtml" />
@@ -247,6 +248,7 @@
     <Content Include="Views\AdminManage\Index.cshtml" />
     <Content Include="Views\AdminManage\Login.cshtml" />
     <Content Include="Views\AdminManage\ManageUsers.cshtml" />
+    <Content Include="Views\AdminManage\MyProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
