@@ -3,9 +3,15 @@
 
 $(document).ready(function () {
     load_users()
-    
+
+    $('select').on('change', function (e) {
+        permission = $(this).find("option:selected")
+        
+    });
+
 });
 
+var permission
 var UserId = ""
 var AccId =""
 
@@ -105,7 +111,7 @@ function clear_input() {
     $("#txt_email").val("")
     $("#txt_username").val("")
     $("#txt_password").val("")
-    
+    permission=null
     $("#txt_fullname1").val("")
     $("#datepicker1").val("")
     $("#txt_phone1").val("")
@@ -200,7 +206,7 @@ function Dangky() {
                 TenTK: $("#txt_username1").val(),
                 Email: $("#txt_email1").val(),
                 MatKhau: $("#txt_password1").val(),
-                Quyen: $("#select_quyen1").val()
+                Quyen: permission.val()
             },
             success: function (data) {
                 if (data.msg == "error") {
@@ -264,7 +270,7 @@ function Save_Acc() {
             TenTK: $("#txt_username").val(),
             Email: $("#txt_email").val(),
             MatKhau: $("#txt_password").val(),
-            Quyen: $("#select_quyen").val()
+            Quyen: permission.val()
         },
         success: function (data) {
             if (data.msg == "error") {
