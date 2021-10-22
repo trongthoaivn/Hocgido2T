@@ -5,8 +5,8 @@ $(document).ready(function () {
     load_users()
 
     $('select').on('change', function (e) {
-        permission = $(this).find("option:selected")
-        
+        var item = $(this).find("option:selected")
+        permission = item.val()
     });
 
 });
@@ -133,6 +133,7 @@ function detail(mand) {
         success: function (data) {
             UserId = data.nguoidung.MaND
             AccId = data.taikhoan.MaTK
+            permission = data.taikhoan.Quyen
             if (data.taikhoan.Quyen == "115")
                 $("#115").attr("selected","")
             else if (data.taikhoan.Quyen == "114")
@@ -206,7 +207,7 @@ function Dangky() {
                 TenTK: $("#txt_username1").val(),
                 Email: $("#txt_email1").val(),
                 MatKhau: $("#txt_password1").val(),
-                Quyen: permission.val()
+                Quyen: permission
             },
             success: function (data) {
                 if (data.msg == "error") {
@@ -252,7 +253,6 @@ function Xacnhanthongtin(Mand) {
 
 function save() {
     if (Kiemtradulieu() != false) {
-        console.log(UserId + AccId)
         Save_Users()
         
     } else {
@@ -270,7 +270,7 @@ function Save_Acc() {
             TenTK: $("#txt_username").val(),
             Email: $("#txt_email").val(),
             MatKhau: $("#txt_password").val(),
-            Quyen: permission.val()
+            Quyen: permission
         },
         success: function (data) {
             if (data.msg == "error") {
