@@ -358,10 +358,10 @@ namespace Hocgido2T.Controllers
             try
             {
                 Boolean check = db.NguoiDungs.Any(p => p.MaND.Equals(luuBai.MaND)) && db.BaiHocs.Any(p => p.MaBaiHoc.Equals(luuBai.MaBaiHoc));
-                if (check && db.LuuBaiHocs.Any(p => p.MaBaiHoc.Equals(luuBai.MaBaiHoc) && p.MaND.Equals(luuBai.MaND))){
+                if (check && !db.LuuBaiHocs.Any(p => p.MaBaiHoc.Equals(luuBai.MaBaiHoc) && p.MaND.Equals(luuBai.MaND))){
                     LuuBaiHoc LBH = new LuuBaiHoc();
                     LBH.MaLuu = "LB" + day + Min + sec;
-                    LBH.NgayLuu = DateTime.Now;
+                    LBH.NgayLuu = time;
                     LBH.MaND = luuBai.MaND;
                     LBH.MaBaiHoc = luuBai.MaBaiHoc;
                     db.LuuBaiHocs.Add(LBH);
@@ -446,6 +446,113 @@ namespace Hocgido2T.Controllers
                     msg = "error"
                 });
 
+            }
+            catch (Exception e)
+            {
+                return Json(new
+                {
+                    msg = "error",
+                    error = e.Message
+                });
+
+            }
+        }
+
+
+        [HttpPost]
+        [Route("api/thembinhluan")]
+        public IHttpActionResult ThemBinhLuan([FromBody] BinhLuanViewModel binhLuan)
+        {
+            try
+            {
+                if (db.NguoiDungs.Any(p => p.MaND.Equals(binhLuan.MaND)) && db.BaiHocs.Any(p => p.MaBaiHoc.Equals(binhLuan.MaBaiHoc)))
+                {
+                    BinhLuan binhLuan1 = new BinhLuan();
+                    binhLuan1.MaBL = "BL" + day + Min + sec;
+                    binhLuan1.NoiDung = binhLuan.NoiDung;
+                    binhLuan1.MaND = binhLuan.MaND;
+                    binhLuan1.MaBaiHoc = binhLuan.MaBaiHoc;
+                    binhLuan1.NgayBL = time;
+                    db.BinhLuans.Add(binhLuan1);
+                    db.SaveChanges();
+                    return Json(new
+                    {
+                        msg = "ok"
+                    });
+                }else
+                    return Json(new
+                    {
+                        msg = "error"
+                    });
+
+            }
+            catch (Exception e)
+            {
+                return Json(new
+                {
+                    msg = "error",
+                    error = e.Message
+                });
+
+            }
+        }
+
+
+        [HttpGet]
+        [Route("api/ds_binhluan_bh")]
+        public IHttpActionResult DanhSachBinhLuan(String mabh)
+        {
+            try
+            {
+                var list1 = db.BinhLuans.Where(p => p.MaBaiHoc.Equals(mabh));
+                if (list1 != null)
+                {
+                    List<BinhLuanViewModel> list = new List<BinhLuanViewModel>();
+                    foreach(BinhLuan item in list1)
+                    {
+                        list.Add(Hson.toJson(item));
+                    }
+                    return Json(new
+                    {
+                        msg = list
+                    });
+                }else
+                    return Json(new
+                    {
+                        msg = "error"
+                    });
+
+            }
+            catch (Exception e)
+            {
+                return Json(new
+                {
+                    msg = "error",
+                    error = e.Message
+                });
+
+            }
+        }
+
+        [HttpGet]
+        [Route("api/xoabinhluan")]
+        public IHttpActionResult XoaBinhLuan(string userid, string mabl)
+        {
+            try
+            {
+                if (db.BinhLuans.Any(p => p.MaND.Equals(userid) || p.MaBL.Equals(mabl)) && db.NguoiDungs.Any(p => p.TaiKhoan.Quyen.Equals("113"))){
+                    db.BinhLuans.Remove(db.BinhLuans.First(p => p.MaBL.Equals(mabl)));
+                    db.SaveChanges();
+                    return Json(new
+                    {
+                        msg = "ok"
+                    });
+                }
+                else
+                    return Json(new
+                    {
+                        msg = "error"
+                    });
             }
             catch (Exception e)
             {

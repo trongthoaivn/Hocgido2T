@@ -44,6 +44,7 @@ namespace Hocgido2T.Controllers
         {
             LuuBaiHocViewModel view = new LuuBaiHocViewModel();
             view.MaLuu = obj.MaLuu;
+            view.NgayLuu = obj.NgayLuu;
             view.MaND = obj.MaND;
             view.MaBaiHoc = obj.MaBaiHoc;
             return view;
