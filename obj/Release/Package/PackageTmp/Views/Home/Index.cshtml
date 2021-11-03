@@ -2,30 +2,136 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+<script src="~/Scripts/HomeIndex.js"></script>
+
+<div class="container">
+    <div class="page-banner home-banner">
+        <div class="row align-items-center flex-wrap-reverse h-100">
+            <div class="col-md-6 py-5 wow fadeInLeft">
+                <h1 class="mb-4">Hành trang cho công việc tương lai của bạn</h1>
+                <p class="text-lg text-grey mb-5">Một công cụ hữu ích để học và thực hành kiến thức công nghệ.</p>
+                <a href="#" class="btn btn-primary btn-split">Khám phá ngay<div class="fab"><i class="fas fa-play"></i></div></a>
+            </div>
+            <div class="col-md-6 py-5 wow zoomIn">
+                <div class="img-fluid text-center">
+                    <img style="width:95%" src="~/images/3323618-ai.svg" alt="">
+                </div>
+            </div>
+        </div>
+        <a href="#about" class="btn-scroll" data-role="smoothscroll"><i class="fas fa-chevron-down"></i></a>
+    </div>
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+
+<div class="page-section" id="about">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 py-3 wow fadeInUp">
+                <span class="subhead">Về chúng tôi</span>
+                <h2 class="title-section">Website học lập trình miễn phí cho mọi người</h2>
+                <div class="divider"></div>
+
+                <p>Chúng tôi là sinh viên của Trường Đại Công nghệ Tp.Hồ Chí Minh </p>
+                <p>
+                    Dự án này phục vụ cho đồ án chuyên ngành công nghệ thông tin. Trong dự án này chúng tôi có sử dụng những tài liệu thuộc trang web khác.
+                    Chúng tôi không chịu trách nhiệm về nội dung của trang web này.
+                </p>
+                <a href="about.html" class="btn btn-primary mt-3">Xem thêm</a>
+            </div>
+            <div class="col-lg-6 py-3 wow fadeInRight">
+                <div class="img-fluid py-3 text-center">
+                    <img src="../assets/img/about_frame.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div> <!-- .container -->
+</div> <!-- .page-section -->
+
+
+
+<div class="page-section" id="about">
+    <div class="container">
+
+    </div> <!-- .container -->
+</div> <!-- .page-section -->
+
+<div class="page-section banner-info">
+    <div class="wrap bg-image" style="background-image: url(../../images/bg-introduction-banner.png);">
+        <div class="container">
+            <div class="text-center wow fadeInUp">
+                <h2 class="title-section">Bạn muốn học gì ?</h2>
+            </div>
+            <div id="baner4" class="row align-items-center">
+            </div>
+        </div>
+    </div> <!-- .wrap -->
+</div> <!-- .page-section -->
+
+<div class="page-section bg-light">
+    <div id="baner5" class="container">
+        <div class="text-center wow fadeInUp">
+            <h2 class="title-section">Các khóa học phổ biến</h2>
+            <div class="divider mx-auto"></div>
+        </div>
+    </div> <!-- .container -->
+</div> <!-- .page-section -->
+<!-- Blog -->
+<div class="page-section">
+    <div class="container">
+        <div class="text-center wow fadeInUp">
+            <h2  class="title-section">Tin tức mới</h2>
+            <div class="divider mx-auto"></div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-lg-4 py-3 wow fadeInUp">
+                <div class="card-blog">
+                    <div class="header">
+                        <div class="post-thumb">
+                            <img src="../assets/img/blog/blog-1.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="body">
+                        <h5 class="post-title"><a href="#">Source of Content Inspiration</a></h5>
+                        <div class="post-date">Posted on <a href="#">27 Jan 2020</a></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 py-3 wow fadeInUp">
+                <div class="card-blog">
+                    <div class="header">
+                        <div class="post-thumb">
+                            <img src="../assets/img/blog/blog-2.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="body">
+                        <h5 class="post-title"><a href="#">Source of Content Inspiration</a></h5>
+                        <div class="post-date">Posted on <a href="#">27 Jan 2020</a></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 py-3 wow fadeInUp">
+                <div class="card-blog">
+                    <div class="header">
+                        <div class="post-thumb">
+                            <img src="../assets/img/blog/blog-3.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="body">
+                        <h5 class="post-title"><a href="#">Source of Content Inspiration</a></h5>
+                        <div class="post-date">Posted on <a href="#">27 Jan 2020</a></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 mt-4 text-center wow fadeInUp">
+                <a href="blog.html" class="btn btn-primary">View More</a>
+            </div>
+        </div>
     </div>
 </div>
+
+
+

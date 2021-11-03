@@ -187,18 +187,25 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\dataTables.bootstrap4.min.css" />
+    <Content Include="Content\HomeIndex.css" />
+    <Content Include="Content\homepage.css" />
     <Content Include="Content\login.css" />
     <Content Include="Content\register.css" />
     <Content Include="Content\user_profile.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="images\3323618-ai.svg" />
+    <Content Include="images\bg-introduction-banner.png" />
+    <Content Include="images\bg_pattern.svg" />
     <Content Include="images\img.jpg" />
     <Content Include="images\Logo_ngang.png" />
     <Content Include="images\Logo_tron.png" />
     <Content Include="images\Logo_vuong.png" />
     <Content Include="images\p404.png" />
     <Content Include="images\user.png" />
+    <Content Include="Content\animate.css" />
+    <Content Include="images\world_pattern.svg" />
     <Content Include="Scripts\dashboard.js" />
     <Content Include="Scripts\bootbox.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -207,6 +214,8 @@
     <None Include="Properties\PublishProfiles\Default Settings.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\core.min.js" />
+    <Content Include="Scripts\HomeIndex.js" />
+    <Content Include="Scripts\homepage.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
@@ -226,6 +235,7 @@
     <Content Include="Scripts\register.js" />
     <Content Include="Scripts\sweetalert.min.js" />
     <Content Include="Scripts\userprofile.js" />
+    <Content Include="Scripts\wow.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -236,7 +246,7 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_HomeLayout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -250,6 +260,9 @@
     <Content Include="Views\AdminManage\Login.cshtml" />
     <Content Include="Views\AdminManage\ManageUsers.cshtml" />
     <Content Include="Views\AdminManage\MyProfile.cshtml" />
+    <Content Include="Views\Home\Charts.cshtml" />
+    <Content Include="Views\Home\Forum.cshtml" />
+    <Content Include="Views\Home\Courses.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

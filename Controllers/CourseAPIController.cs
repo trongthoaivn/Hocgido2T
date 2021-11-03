@@ -52,6 +52,31 @@ namespace Hocgido2T.Controllers
             }
         }
 
+        [HttpPost]
+        [Route("api/suakhoahoc")]
+        public IHttpActionResult ChinhsuaKhoaHoc([FromBody] KhoaHocViewModel KH)
+        {
+            try
+            {
+                KhoaHoc khoaHoc = db.KhoaHocs.First(p=>p.MaKH.Equals(KH.MaKH));
+                khoaHoc.TenKH = KH.TenKH;
+                khoaHoc.MoTaKH = KH.MoTaKH;
+                db.SaveChanges();
+                return Json(new
+                {
+                    msg = "ok"
+                });
+            }
+            catch (Exception e)
+            {
+                return Json(new
+                {
+                    msg = "error",
+                    error = e.Message
+                });
+
+            }
+        }
 
         [HttpGet]
         [Route("api/ds_khoahoc")]

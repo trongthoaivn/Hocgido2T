@@ -26,5 +26,25 @@ namespace Hocgido2T.Controllers
 
             return View();
         }
+
+        public ActionResult Charts()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
+
+        public ActionResult Forum()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
+        public ActionResult Courses()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
     }
 }

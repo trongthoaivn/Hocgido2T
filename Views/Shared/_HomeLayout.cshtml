@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hocgido</title>
+    
+    <script src="~/Scripts/jquery-3.4.1.js" type="text/javascript"></script>
+    <script src="~/Scripts/popper.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/sweetalert.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/wow.min.js"></script>
+
+    <link rel="stylesheet" href="~/Content/homepage.css" />
+    <link href="~/Content/animate.css" rel="stylesheet" />
+    <!--fav-icon-->
+    <link rel="shortcut icon" href="~/images/Logo_tron.png" />
+    <!--font awesome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="200">
+        <div class="container">
+            <a href="@Url.Action("Index","Home")" class="navbar-brand">HocGiDo<span class="text-primary">2T.</span></a>
+
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="navbar-collapse collapse" id="navbarContent">
+                <ul class="navbar-nav ml-auto">
+                    <li id="homeli" class="nav-item ">
+                        <a class="nav-link" href="@Url.Action("Index","Home")">Trang Chủ</a>
+                    </li>
+                    <li id="courseli" class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Courses","Home")">Khóa Học</a>
+                    </li>
+                    <li id="chartsli" class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Charts","Home")">Xếp Hạng</a>
+                    </li>
+                    <li id="forumli" class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Forum","Home")">Diễn Đàn</a>
+                    </li>
+                    <li id="contactli" class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Contact","Home")">Liên Hệ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-primary ml-lg-2" href="@Url.Action("Login","Users")">Đăng Nhập</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    <div class="">
+        @RenderBody()
+    </div>
+    <footer class="page-footer bg-image" style="background-image: url(../../images/world_pattern.svg);">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-3 py-3">
+                    <h3>HocGiDo2T</h3>
+                    <p>Mang đến kiến thức lập trình miễn phí cho mọi người</p>
+                    <div class="social-media-button">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-google-plus-g"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 py-3">
+                    <h5>Nội dung</h5>
+                    <ul class="footer-menu">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Career</a></li>
+                        <li><a href="#">Advertise</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Help & Support</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 py-3">
+                    <h5>Liên hệ với chúng tôi</h5>
+                    <p>FrontEnd Developer: hoaithu230600@gmail.com</p>
+                    <p>BackEnd Developer: trongthoai01@gmail.com</p>
+                   
+                </div>
+                <div class="col-lg-3 py-3">
+                    <h5>Tuyên bố</h5>
+                    <p>Trang web phục vụ cho đồ án chuyên ngành công nghệ thông tin, 
+                    chúng tôi không chịu trách nhiệm về nội dung của trang web
+                    </p>
+                    
+                </div>
+            </div>
+
+            <p class="text-center" id="copyright">Copyright &copy; @DateTime.Now.Year - Product of ChoiGiDo Studio </p>
+        </div>
+    </footer>
+    <script src="~/Scripts/homepage.js"></script>
+</body>
+</html>

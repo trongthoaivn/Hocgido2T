@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@{
+  
+    Layout = null;
+}
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -28,9 +32,9 @@
                 <input type="password" id="password" />
                 <span class="focus-input"></span>
             </div>
-            <a href="@Url.Action("Register","Users")" >Tạo tài khoản</a>
+            <a href="@Url.Action("Register","Users")">Tạo tài khoản</a>
             <a href="#">Quên mật khẩu ?</a>
-            <button class="btn" onclick="Dangnhap()" >Đăng nhập</button>
+            <button class="btn" onclick="Dangnhap()">Đăng nhập</button>
         </div>
         <div class="image">
             <img src="~/images/img.jpg" class="img" alt="">
