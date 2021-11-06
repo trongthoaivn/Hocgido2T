@@ -1,0 +1,111 @@
+﻿
+@{
+    ViewBag.Title = "ManageCourse";
+    Layout = "~/Views/Shared/_DashboardAdmin.cshtml";
+}
+
+<link href="https://unpkg.com/bootstrap-table@1.18.3/dist/bootstrap-table.min.css" rel="stylesheet">
+
+<script src="https://unpkg.com/bootstrap-table@1.18.3/dist/bootstrap-table.min.js"></script>
+
+<div class="container content">
+    <h2 style="text-align:center">Quản lý khóa học</h2>
+    <div class="row">
+        <div class="col-lg-7">
+            <h5 style="text-align:center">Danh sách khóa học </h5>
+            
+            <div class="row">
+                <table class="table table-hover"
+                       id="table_course"
+                       data-toggle="table"
+                       data-height="540"
+                       data-ajax="get_course"
+                       data-show-refresh="true"
+                       data-search="true"
+                       data-buttons="custom_btn"
+                       data-pagination="true"
+                       data-page-list="[10, 25, 50, 100, 200, All]"
+                       data-url="../api/ds_khoahoc">
+                    <thead>
+                        <tr>
+                            <th  data-field="TenKH" >Tên khóa học</th>
+                            <th  data-field="MoTaKH">Mô tả</th>
+                            <th  data-field="LuotDK">Sub</th>
+                        </tr>
+                    </thead>
+                   
+                </table>
+            </div>
+        </div>
+        <div class="col-lg-1"></div>
+        <div class="col-lg-4">
+            <h5 style="text-align:center">Danh sách bài học </h5>
+
+            <div class="row">
+               
+                <table class="table table-hover"
+                       id="table_chapter"
+                       data-toggle="table"
+                       data-height="540"
+                       data-search="true"
+                       data-buttons="custom_btn"
+                       data-pagination="true"
+                       data-page-list="[10, 25, 50, 100, 200, All]">
+                    <thead>
+                        <tr>
+                            <th data-field="GioiThieu">Bài học</th>
+                            <th data-field="LuocHoc">#</th>
+                        </tr>
+                    </thead>
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+   
+
+            function get_course(params) {
+                $.get("../api/ds_khoahoc").then(function (res) {
+                    params.success(res.msg)
+                })
+            }
+
+            function custom_btn() {
+                return {
+                    btn_themkh: {
+                        text: 'Thêm khóa học mới',
+                        icon: 'fas fa-plus',
+                        event: function () {
+                            alert('Thêm khóa học mới click')
+                        },
+                        attributes: {
+                            title: 'Thêm khóa học mới'
+                        }
+                    }
+                }
+            }
+
+
+    function get_chapter(id) {
+        $.get("../api/ds_baihoc_kh?makh=" + id).then(function (res) {
+            $("#table_chapter").bootstrapTable('removeAll')
+            $("#table_chapter").bootstrapTable('append', res.msg)
+        })
+    }
+
+    
+
+    $(document).ready(function () {
+
+        $("#table_course").on("click-row.bs.table", function (field, value, row, $el) {
+            get_chapter(value.MaKH)
+        });
+
+    });
+    
+
+
+</script>

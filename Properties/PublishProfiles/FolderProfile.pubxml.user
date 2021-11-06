@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <_PublishTargetUrl>C:\Users\trong\Desktop\ChoiGiDoStudio\Publish</_PublishTargetUrl>
-    <History>True|2021-10-29T02:08:06.7983144Z;</History>
+    <History>True|2021-11-03T12:17:54.5464607Z;True|2021-10-29T09:08:06.7983144+07:00;</History>
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/Antlr3.Runtime.dll">
@@ -21,10 +21,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/05/2021 19:27:55</publishTime>
     </File>
     <File Include="bin/Hocgido2T.dll">
-      <publishTime>10/29/2021 09:08:05</publishTime>
+      <publishTime>11/03/2021 13:23:01</publishTime>
     </File>
     <File Include="bin/Hocgido2T.pdb">
-      <publishTime>10/29/2021 09:08:05</publishTime>
+      <publishTime>11/03/2021 13:23:01</publishTime>
     </File>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
       <publishTime>09/05/2018 16:10:50</publishTime>
@@ -218,6 +218,9 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Content/404page.css">
       <publishTime>10/17/2021 03:02:16</publishTime>
     </File>
+    <File Include="Content/animate.css">
+      <publishTime>11/03/2021 11:07:07</publishTime>
+    </File>
     <File Include="Content/bootstrap-theme.css">
       <publishTime>09/23/2021 16:50:25</publishTime>
     </File>
@@ -251,6 +254,12 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Content/dataTables.bootstrap4.min.css">
       <publishTime>10/21/2021 11:45:09</publishTime>
     </File>
+    <File Include="Content/HomeIndex.css">
+      <publishTime>11/03/2021 19:06:07</publishTime>
+    </File>
+    <File Include="Content/homepage.css">
+      <publishTime>11/03/2021 10:53:04</publishTime>
+    </File>
     <File Include="Content/login.css">
       <publishTime>10/16/2021 17:58:01</publishTime>
     </File>
@@ -281,6 +290,15 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Global.asax">
       <publishTime>09/23/2021 16:54:14</publishTime>
     </File>
+    <File Include="images/3323618-ai.svg">
+      <publishTime>11/03/2021 12:17:45</publishTime>
+    </File>
+    <File Include="images/bg-introduction-banner.png">
+      <publishTime>11/03/2021 12:36:03</publishTime>
+    </File>
+    <File Include="images/bg_pattern.svg">
+      <publishTime>11/03/2021 12:32:30</publishTime>
+    </File>
     <File Include="images/img.jpg">
       <publishTime>10/17/2021 01:09:27</publishTime>
     </File>
@@ -299,6 +317,9 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="images/user.png">
       <publishTime>10/17/2021 01:09:27</publishTime>
     </File>
+    <File Include="images/world_pattern.svg">
+      <publishTime>11/03/2021 11:41:05</publishTime>
+    </File>
     <File Include="libman.json">
       <publishTime>10/16/2021 22:35:01</publishTime>
     </File>
@@ -316,6 +337,12 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     </File>
     <File Include="Scripts/dashboard.js">
       <publishTime>10/20/2021 17:24:22</publishTime>
+    </File>
+    <File Include="Scripts/HomeIndex.js">
+      <publishTime>11/03/2021 19:05:27</publishTime>
+    </File>
+    <File Include="Scripts/homepage.js">
+      <publishTime>11/03/2021 13:01:14</publishTime>
     </File>
     <File Include="Scripts/jquery-3.4.1.js">
       <publishTime>09/23/2021 16:50:25</publishTime>
@@ -377,11 +404,14 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Scripts/userprofile.js">
       <publishTime>10/22/2021 10:39:43</publishTime>
     </File>
+    <File Include="Scripts/wow.min.js">
+      <publishTime>11/03/2021 11:07:34</publishTime>
+    </File>
     <File Include="Views/AdminManage/Index.cshtml">
       <publishTime>10/18/2021 06:24:42</publishTime>
     </File>
     <File Include="Views/AdminManage/Login.cshtml">
-      <publishTime>10/18/2021 06:33:05</publishTime>
+      <publishTime>11/02/2021 12:01:56</publishTime>
     </File>
     <File Include="Views/AdminManage/ManageUsers.cshtml">
       <publishTime>10/21/2021 19:49:55</publishTime>
@@ -390,13 +420,22 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/22/2021 10:29:44</publishTime>
     </File>
     <File Include="Views/Home/About.cshtml">
-      <publishTime>09/23/2021 16:54:14</publishTime>
+      <publishTime>11/03/2021 09:42:21</publishTime>
+    </File>
+    <File Include="Views/Home/Charts.cshtml">
+      <publishTime>11/03/2021 11:57:46</publishTime>
     </File>
     <File Include="Views/Home/Contact.cshtml">
-      <publishTime>09/23/2021 16:54:14</publishTime>
+      <publishTime>11/03/2021 11:58:12</publishTime>
+    </File>
+    <File Include="Views/Home/Courses.cshtml">
+      <publishTime>11/03/2021 11:57:25</publishTime>
+    </File>
+    <File Include="Views/Home/Forum.cshtml">
+      <publishTime>11/03/2021 11:57:09</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>09/23/2021 16:54:14</publishTime>
+      <publishTime>11/03/2021 18:58:43</publishTime>
     </File>
     <File Include="Views/Manage/Index.cshtml">
       <publishTime>10/17/2021 01:29:32</publishTime>
@@ -408,28 +447,31 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/17/2021 03:05:54</publishTime>
     </File>
     <File Include="Views/Shared/_Dashboard.cshtml">
-      <publishTime>10/22/2021 10:15:01</publishTime>
+      <publishTime>11/02/2021 12:05:53</publishTime>
     </File>
     <File Include="Views/Shared/_DashboardAdmin.cshtml">
-      <publishTime>10/22/2021 10:33:14</publishTime>
+      <publishTime>11/02/2021 12:05:34</publishTime>
+    </File>
+    <File Include="Views/Shared/_HomeLayout.cshtml">
+      <publishTime>11/03/2021 17:50:49</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
       <publishTime>10/09/2021 19:11:11</publishTime>
     </File>
     <File Include="Views/Users/Login.cshtml">
-      <publishTime>10/16/2021 23:37:31</publishTime>
+      <publishTime>11/02/2021 12:03:11</publishTime>
     </File>
     <File Include="Views/Users/Register.cshtml">
-      <publishTime>10/17/2021 01:34:39</publishTime>
+      <publishTime>11/02/2021 12:03:19</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>09/23/2021 16:50:20</publishTime>
     </File>
     <File Include="Views/_ViewStart.cshtml">
-      <publishTime>09/23/2021 16:50:20</publishTime>
+      <publishTime>11/02/2021 12:00:38</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>10/29/2021 09:08:06</publishTime>
+      <publishTime>11/03/2021 19:17:53</publishTime>
     </File>
   </ItemGroup>
 </Project>

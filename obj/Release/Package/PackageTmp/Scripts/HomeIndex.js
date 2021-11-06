@@ -7,11 +7,11 @@ $(document).ready(function () {
 
 function baner_item(tenkh,hinhanh) {
     var item = 
-        '<div style="text-align:center" class="col-lg-3 col-md-2 py-3 wow fadeInUp">'+
-        '<div class="card-blog">'+
-        '<div style="text-align:center" class="header">'+
+        '<div style="text-align:center;" class="col-lg-3 col-md-1 py-3 wow fadeInUp">'+
+        '<div  class="card-blog">'+
+        '<div  class="header">'+
         '<div class="post-thumb">' +
-        '<img style="width:100%" src="' + hinhanh + '" alt="">' +
+        '<img style="width:100%;height: auto;" src="' + hinhanh + '" alt="">' +
         '</div>'+
         '</div>'+
         '<div style="background-color:white" class="body">' +

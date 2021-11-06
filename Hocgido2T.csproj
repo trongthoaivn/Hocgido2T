@@ -263,6 +263,7 @@
     <Content Include="Views\Home\Charts.cshtml" />
     <Content Include="Views\Home\Forum.cshtml" />
     <Content Include="Views\Home\Courses.cshtml" />
+    <Content Include="Views\AdminManage\ManageCourse.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

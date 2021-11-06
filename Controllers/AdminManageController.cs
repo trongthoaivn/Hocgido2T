@@ -77,5 +77,25 @@ namespace Hocgido2T.Controllers
                 return RedirectToAction("Login", "AdminManage");
             }
         }
+        public ActionResult ManageCourse()
+        {
+            try
+            {
+                HttpCookie cookie = HttpContext.Request.Cookies.Get("userID");
+                String maTK = cryto.Decrypt(cookie.Value);
+                NguoiDung nd = db.NguoiDungs.FirstOrDefault(p => p.MaTK.Equals(maTK) && (p.TaiKhoan.Quyen.Equals("113") || p.TaiKhoan.Quyen.Equals("114")));
+
+                if (nd != null)
+                {
+                    return View(nd);
+                }
+                else
+                    return RedirectToAction("Login", "AdminManage");
+            }
+            catch (Exception e)
+            {
+                return RedirectToAction("Login", "AdminManage");
+            }
+        }
     }
 }
