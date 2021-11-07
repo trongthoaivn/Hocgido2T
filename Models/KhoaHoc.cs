@@ -25,6 +25,8 @@ namespace Hocgido2T.Models
 
         public string MoTaKH { get; set; }
 
+        public string HinhAnh { get; set; }
+
         public int? LuotDK { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

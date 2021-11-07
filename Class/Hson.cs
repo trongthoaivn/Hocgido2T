@@ -62,6 +62,7 @@ namespace Hocgido2T.Controllers
             view.MaKH = obj.MaKH;
             view.TenKH = obj.TenKH;
             view.MoTaKH = obj.MoTaKH;
+            view.HinhAnh = obj.HinhAnh;
             view.LuotDK = obj.LuotDK;
             return view;
         }

@@ -34,6 +34,7 @@ namespace Hocgido2T.Controllers
                 khoaHoc.MaKH = "KH" + Min + day + sec;
                 khoaHoc.TenKH = KH.TenKH;
                 khoaHoc.MoTaKH = KH.MoTaKH;
+                khoaHoc.HinhAnh = KH.HinhAnh;
                 khoaHoc.LuotDK = 0;
                 db.KhoaHocs.Add(khoaHoc);
                 db.SaveChanges();
@@ -61,6 +62,7 @@ namespace Hocgido2T.Controllers
                 KhoaHoc khoaHoc = db.KhoaHocs.First(p=>p.MaKH.Equals(KH.MaKH));
                 khoaHoc.TenKH = KH.TenKH;
                 khoaHoc.MoTaKH = KH.MoTaKH;
+                khoaHoc.HinhAnh = KH.HinhAnh;
                 db.SaveChanges();
                 return Json(new
                 {
@@ -303,6 +305,38 @@ namespace Hocgido2T.Controllers
 
             }
         }
+
+        [HttpGet]
+        [Route("api/chitietbaihoc")]
+        public IHttpActionResult ChiTietBaiHoc(String mabh)
+        {
+            try
+            {
+                var baihoc = db.BaiHocs.First(p => p.MaBaiHoc.Equals(mabh));
+                if (baihoc != null)
+                {
+                    return Json(new
+                    {
+                        msg = Hson.toJson(baihoc)
+                    });
+                }
+                else return Json(new
+                {
+                    msg = "error"
+                });
+
+            }
+            catch (Exception e)
+            {
+                return Json(new
+                {
+                    msg = "error",
+                    error = e.Message
+                });
+
+            }
+        }
+
 
         [HttpGet]
         [Route("api/ds_baihoc_kh")]

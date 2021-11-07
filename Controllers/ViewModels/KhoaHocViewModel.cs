@@ -13,6 +13,9 @@ namespace Hocgido2T.Controllers.ViewModels
 
         public string MoTaKH { get; set; }
 
+
+        public string HinhAnh { get; set; }
+
         public int? LuotDK { get; set; }
     }
 }

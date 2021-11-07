@@ -71,6 +71,10 @@ namespace Hocgido2T.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<KhoaHoc>()
+                .Property(e => e.HinhAnh)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<KhoaHoc>()
                 .HasMany(e => e.KhoaHocDKs)
                 .WithRequired(e => e.KhoaHoc)
                 .WillCascadeOnDelete(false);
