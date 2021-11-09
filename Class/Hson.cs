@@ -120,7 +120,7 @@ namespace Hocgido2T.Controllers
         {
             CauHoiFullViewModel view = new CauHoiFullViewModel();
             view.CauHoi = cauHoiobj;
-            view.dapAns = dapAns;
+            view.DapAns = dapAns;
             return view;
         }
     }

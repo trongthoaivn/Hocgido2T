@@ -901,5 +901,56 @@ namespace Hocgido2T.Controllers
 
             }
         }
+        [HttpGet]
+        [Route("api/xoadapan")]
+        public IHttpActionResult XoaDapAn(String madapan)
+        {
+            try
+            {
+                var dapan = db.DapAns.First(p => p.MaDapAn.Equals(madapan));
+                if (dapan!=null)
+                {
+                    db.DapAns.Remove(dapan);
+                    db.SaveChanges();
+                    return Json(new
+                    {
+                        msg = "ok",
+                    });
+                }else
+                    return Json(new
+                    {
+                        msg = "error",
+                    });
+            }
+            catch (Exception e)
+            {
+                return Json(new
+                {
+                    msg = "error",
+                    error = e.Message
+                });
+
+            }
+        }
+
+        //[HttpGet]
+        //[Route("api/xoacauhoi")]
+        //public IHttpActionResult XoaCauHoi(String mach)
+        //{
+        //    try
+        //    {
+        //        var cauhoi = db.CauHois();
+
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        return Json(new
+        //        {
+        //            msg = "error",
+        //            error = e.Message
+        //        });
+
+        //    }
+        //}
     }
 }

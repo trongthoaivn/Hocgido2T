@@ -8,7 +8,7 @@ namespace Hocgido2T.Controllers.ViewModels
     public class CauHoiFullViewModel
     {
        public CauHoiViewModel CauHoi { get; set; }
-       public List< DapAnViewModel> dapAns { get; set; }
+       public List< DapAnViewModel> DapAns { get; set; }
 
     }
 }
