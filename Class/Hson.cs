@@ -115,5 +115,13 @@ namespace Hocgido2T.Controllers
             view.MaKH = obj.MaKH;
             return view;
         }
+
+        public static CauHoiFullViewModel toJson (CauHoiViewModel cauHoiobj ,List<DapAnViewModel> dapAns)
+        {
+            CauHoiFullViewModel view = new CauHoiFullViewModel();
+            view.CauHoi = cauHoiobj;
+            view.dapAns = dapAns;
+            return view;
+        }
     }
 }

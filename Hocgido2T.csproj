@@ -152,6 +152,7 @@
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\ViewModels\BaiHocViewModel.cs" />
     <Compile Include="Controllers\ViewModels\BinhLuanViewModel.cs" />
+    <Compile Include="Controllers\ViewModels\CauHoiFullViewModel.cs" />
     <Compile Include="Controllers\ViewModels\CauHoiViewModel.cs" />
     <Compile Include="Controllers\ViewModels\DapAnViewModel.cs" />
     <Compile Include="Controllers\ViewModels\KhoaHocDKViewModel.cs" />

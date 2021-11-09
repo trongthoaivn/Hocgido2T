@@ -623,5 +623,283 @@ namespace Hocgido2T.Controllers
 
             }
         }
+
+        [HttpGet]
+        [Route("api/themkiemtra")]
+        public IHttpActionResult ThemKiemTra(String mabh)
+        {
+            try
+            {
+                if (db.BaiHocs.Any(p => p.MaBaiHoc.Equals(mabh)))
+                {
+                    KiemTra kiemtra = new KiemTra();
+                    kiemtra.MaKT = "KT" + day + Min + sec;
+                    kiemtra.MaBaiHoc = mabh;
+                    db.KiemTras.Add(kiemtra);
+                    db.SaveChanges();
+                    return Json(new
+                    {
+                        msg = "ok",
+                        MaKT =kiemtra.MaKT
+                    });
+                }
+                else
+                    return Json(new
+                    {
+                        msg = "error"
+                    });
+            }
+            catch (Exception e)
+            {
+                return Json(new
+                {
+                    msg = "error",
+                    error = e.Message
+                });
+
+            }
+        }
+
+
+        [HttpGet]
+        [Route("api/ds_kiemtra")]
+        public IHttpActionResult DanhSachKiemTra(String mabh)
+        {
+            try
+            {
+                var ds = db.KiemTras.Where(p => p.MaBaiHoc.Equals(mabh)).ToList();
+                if (ds != null)
+                {
+
+                    List<KiemTraViewModel> list = new List<KiemTraViewModel>();
+                    foreach(KiemTra item  in ds)
+                    {
+                        list.Add(Hson.toJson(item));
+                    }
+                    return Json(new
+                    {
+                        msg = list 
+                        
+                    });
+                }else  
+                    return Json(new
+                {
+                    msg = "error",
+                    
+                });
+
+            }
+            catch (Exception e)
+            {
+                return Json(new
+                {
+                    msg = "error",
+                    error = e.Message
+                });
+
+            }
+        }
+
+
+        [HttpPost]
+        [Route("api/themcauhoi")]
+
+        public IHttpActionResult ThemCauHoi([FromBody] CauHoiViewModel cauHoiView)
+        {
+            try
+            {
+                if (db.KiemTras.Any(p => p.MaKT.Equals(cauHoiView.MaKT))){
+                    CauHoi cauHoi = new CauHoi();
+                    cauHoi.MaCauHoi = "CH" + day + Min + sec;
+                    cauHoi.NoiDungCauHoi = cauHoiView.NoiDungCauHoi;
+                    cauHoi.TheLoai = cauHoiView.TheLoai;
+                    cauHoi.MaKT = cauHoiView.MaKT;
+
+                    db.CauHois.Add(cauHoi);
+                    db.SaveChanges();
+                    return Json(new
+                    {
+                        msg = "ok",
+                        MaCH = cauHoi.MaCauHoi
+                    });
+                }
+                else
+                    return Json(new
+                    {
+                        msg = "error",
+                    });
+
+            }
+            catch (Exception e)
+            {
+                return Json(new
+                {
+                    msg = "error",
+                    error = e.Message
+                });
+
+            }
+        }
+
+
+        [HttpPost]
+        [Route("api/themdapan")]
+        public IHttpActionResult ThemDapAn([FromBody] DapAnViewModel dapAnView)
+        {
+            try
+            {
+                if (db.CauHois.Any(p => p.MaCauHoi.Equals(dapAnView.MaCauHoi)))
+                {
+                    DapAn dapAn = new DapAn();
+                    dapAn.MaDapAn = "DA" + day + Min + sec;
+                    dapAn.NoiDungDapAn = dapAnView.NoiDungDapAn;
+                    dapAn.DapAnDung = dapAnView.DapAnDung;
+                    dapAn.MaCauHoi = dapAnView.MaCauHoi;
+                    db.DapAns.Add(dapAn);
+                    db.SaveChanges();
+                    return Json(new
+                    {
+                        msg = "ok"
+                    });
+                } else
+                    return Json(new
+                    {
+                        msg = "error",
+                        
+                    });
+
+            }
+            catch (Exception e)
+            {
+                return Json(new
+                {
+                    msg = "error",
+                    error = e.Message
+                });
+
+            }
+        }
+
+        [HttpGet]
+        [Route("api/ds_cauhoi")]
+        public IHttpActionResult DanhSachCauHoi(String mabh)
+        {
+            try
+            {
+                var list = (from cauhoi in db.CauHois
+                            join kiemtra in db.KiemTras on cauhoi.MaKT equals kiemtra.MaKT
+                            where kiemtra.MaBaiHoc.Equals(mabh)
+                            select cauhoi).ToList();
+                if (list != null)
+                {
+                    List<CauHoiFullViewModel> result = new List<CauHoiFullViewModel>();
+                    foreach (CauHoi item in list)
+                    {
+                        var dapan = db.DapAns.Where(p => p.MaCauHoi.Equals(item.MaCauHoi)).ToList();
+                        List<DapAnViewModel> dapAns = new List<DapAnViewModel>();
+                        if (dapan!= null)
+                        {
+                            foreach (DapAn it in dapan)
+                            {
+                                dapAns.Add(Hson.toJson(it));
+                            }
+                        }
+                        result.Add(Hson.toJson(Hson.toJson(item), dapAns));
+                    }
+                    return Json(new
+                    {
+                        msg = result
+                    });
+                }
+                else 
+                    return Json(new
+                {
+                    msg = "error"   
+                });
+
+            }
+            catch (Exception e)
+            {
+                return Json(new
+                {
+                    msg = "error",
+                    error = e.Message
+                });
+
+            }
+        }
+
+        [HttpPost]
+        [Route("api/chinhsuacauhoi")]
+        public IHttpActionResult ChinhSuaCauHoi([FromBody] CauHoiViewModel cauHoiView)
+        {
+            try
+            {
+                var cauhoi = db.CauHois.First(p => p.MaCauHoi.Equals(cauHoiView.MaCauHoi));
+                if (cauhoi!= null)
+                {
+                    cauhoi.NoiDungCauHoi = cauHoiView.NoiDungCauHoi;
+                    cauhoi.TheLoai = cauHoiView.TheLoai;
+                    db.SaveChanges();
+                    return Json(new
+                    {
+                        msg = "ok",
+                       
+                    });
+
+                }
+                else
+                    return Json(new
+                    {
+                        msg = "error",
+                       
+                    });
+            }
+            catch (Exception e)
+            {
+                return Json(new
+                {
+                    msg = "error",
+                    error = e.Message
+                });
+
+            }
+        }
+        [HttpPost]
+        [Route("api/chinhsuadapan")]
+        public IHttpActionResult ChinhSuaDapAn([FromBody] DapAnViewModel dapAnViewModel)
+        {
+            try
+            {
+                var dapan = db.DapAns.First(p => p.MaDapAn.Equals(dapAnViewModel.MaDapAn));
+                if (dapan != null)
+                {
+                    dapan.NoiDungDapAn = dapAnViewModel.NoiDungDapAn;
+                    dapan.DapAnDung = dapAnViewModel.DapAnDung;
+                    db.SaveChanges();
+                    return Json(new
+                    {
+                        msg = "ok",
+                    });
+                }
+                else
+                {
+                    return Json(new
+                    {
+                        msg = "error"
+                    });
+                }
+
+            }
+            catch (Exception e)
+            {
+                return Json(new
+                {
+                    msg = "error",
+                    error = e.Message
+                });
+
+            }
+        }
     }
 }
