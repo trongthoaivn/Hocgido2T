@@ -129,7 +129,6 @@ function custom_btn() {
             html: '<button type="button" name="btn_themkh" data-toggle="modal" data-target="#coursemodal" class="btn btn-success"><i class="fa fas fa-plus"></i></button>',
             event: () => {
             }
-
         }
     }
 }
@@ -179,7 +178,7 @@ function btn_add_baihoc() {
                 }).done(function (res) {
                     if (res.msg != "error")
                         get_chapter($("#chaptermodal").attr("value"))
-                    else swal("Lỗi ", "Đã có lỗi xảy ra !" + data.msg, "error");
+                    else swal("Lỗi ", "Đã có lỗi xảy ra !" + res.msg, "error");
                 }).fail(function (res) {
                     swal("Lỗi ", "Đã có lỗi xảy ra !" + data.error, "error");
                 })

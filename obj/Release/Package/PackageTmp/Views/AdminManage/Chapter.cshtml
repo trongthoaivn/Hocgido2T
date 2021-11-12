@@ -10,14 +10,34 @@
 <script src="~/Scripts/ckeditor/ckeditor.js"></script>
 <script src="~/Scripts/crypto-js.min.js"></script>
 <script src="~/Scripts/aes.min.js"></script>
+<link href="~/Content/bootstrap-table.min.css" rel="stylesheet" />
+<script src="~/Scripts/bootstrap-table.min.js"></script>
 
+<style>
 
-
+    .item {
+        margin-bottom: 20px;
+    }
+    #footer {
+        position: fixed;
+        padding: 10px 10px 0px 10px;
+        right: 0;
+        width: 60px;
+        height: 80%;
+        text-align :center
+    }
+</style>
 
 
 
 
 <div class="container">
+    <div class="container" id="footer">
+        <div class="row">
+            <button type="button" style="margin-bottom:30px" class="btn btn-danger" onclick="location.href ='/AdminManage/ManageCourse'">Hủy</button>
+            <button type="button" class="btn btn-success" onclick="update_chapter()">Lưu</button>
+        </div>
+    </div>
     <h2 id="titleChaptermodal">Bài học : <input class="form-control" type="text" id="txt_tenbh" /></h2>
     <br />
     <div class=" row">
@@ -30,10 +50,21 @@
 
     </div>
     <br />
-    <div class="row" style="margin-top:10px">
+    <div class="row" style="margin-top:30px">
         <div class="col-md-6">
+            <h5><b>Video</b></h5>
+            <div class="btn-toolbar " role="toolbar" aria-label="Toolbar with button groups">
+                <div class="input-group">
+                    <input class="form-control" type="text" id="txt_url" aria-label="Input group example" aria-describedby="btnGroupAddon" />
+                </div>
+                <div class="btn-group " style="margin-left:10px" role="group" aria-label="First group">
+                    <button type="button" class="btn btn-primary" onclick="check_video()"><i class="fas fa-search"></i></button>
+                    <button type="button" class="btn btn-primary" onclick="reset()"><i class="fas fa-sync"></i></button>
+                </div>
+            </div>
+
             <video id="my-video"
-                   style="max-width: 100%; height: auto; width:auto"
+                   style="max-width: 100%; height: auto; width:auto; margin-top:10px"
                    @*autoplay*@
                    controls>
                 <source src="" type="video/mp4" />
@@ -41,19 +72,71 @@
             </video>
         </div>
         <div class="col-md-6">
-            <h5>Video url</h5>
+            <h5><b>Câu hỏi</b></h5>
 
-            <input class="form-control" type="text" id="txt_url" />
-            <span class="focus-input"></span>
-            <button type="button" style="margin-top:10px" class="btn btn-primary" onclick="check_video()"><i class="fas fa-search"></i></button>
-            <button type="button" style="margin-top:10px" class="btn btn-primary" onclick="reset()"><i class="fas fa-sync"></i></button>
-            <button type="button" style="margin-top:10px" class="btn btn-danger" onclick="location.href ='/AdminManage/ManageCourse'">Hủy</button>
-            <button type="button" style="margin-top:10px" class="btn btn-success" onclick="update_chapter()">Lưu</button>
+            <div class="cauhoi">
+                <table class="table table-hover"
+                       id="table_cauhoi"
+                       data-toggle="table"
+                       data-height="540"
+                       data-search="true"
+                       data-show-refresh="true"
+                       data-detail-view="true"
+                       data-buttons="custom_btn"
+                       data-detail-formatter="dapan_view"
+                       data-pagination="true"
+                       data-page-list="[ 25, 50, 100, 200, All]">
+                    <thead>
+                        <tr>
+                            <th data-field="CauHoi.NoiDungCauHoi">Câu hỏi</th>
+                            <th data-field="CauHoi.MaCauHoi" data-formatter="btn_cauhoi" data-events="cauhoi_event">Tác vụ</th>
+                        </tr>
+                    </thead>
+
+                </table>
+            </div>
         </div>
     </div>
+    <br />
+    <br />
 
 
 </div>
+
+
+<div class="modal fade" id="modal-cauhoi" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="titlecoursemodal">Thông tin câu hỏi</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="wrap">
+                    <label>Nội dung câu hỏi </label>
+                    <textarea class="form-control" type="text" id="txt_cauhoi" ></textarea>
+                    <span class="focus-input"></span>
+                </div>
+                <div class="wrap">
+                    <label>Thể loại </label>
+                    <select class="custom-select" id="select_theloai">
+                        <option value="TN" id="TN">Trắc nghiệm</option>
+                        <option value="TL" id="TL">Tự luận</option>
+                        <option value="KHAC" id="khac">Khác</option>
+                    </select>
+                    <span class="focus-input"></span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Hủy</button>
+                <button type="button" class="btn btn-primary" onclick="SaveOrUpdate_cauhoi()">Lưu</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 
 <script>
@@ -71,9 +154,142 @@
             extraPlugins: 'codesnippet',
             codeSnippet_languages: {}
         });
+        get_cauhoi()
+        $('#select_theloai').change(function () {
+            cate = $(this).val()
+            console.log(cate)
+        })
+        $("#table_cauhoi").on("dbl-click-row.bs.table", function (field, value, row, $el) {
+            flagsave = false
+            selected_cauhoi = value.CauHoi.MaCauHoi
+            $('#modal-cauhoi').modal('show');
+        });
 
+        
     });
 
+    var flagsave = true
+    var cate = "TN"
+    var selected_cauhoi
+
+    function SaveOrUpdate_cauhoi() {
+        if (flagsave == true) {
+            add_kiemtra()
+        } else
+            update_cauhoi()
+    }
+
+    function update_cauhoi() {
+        $.post("../api/chinhsuacauhoi", {
+            MaCauHoi: selected_cauhoi,
+            NoiDungCauHoi: $("#txt_cauhoi").val(),
+            TheLoai: cate
+        }).done(function (res) {
+            if (res.msg!="error") {
+                swal("Thông báo", "Lưu câu hỏi thành công", "success").then((value) => {
+                    clear_modal()
+                    get_cauhoi()
+                });
+            } else
+                swal("Lỗi ", "Đã có lỗi xảy ra !" + res.msg, "error");
+            
+        }).fail(function (data) {
+            swal("Lỗi ", "Đã có lỗi xảy ra !" + data.error, "error");
+        });
+    }
+
+
+   
+
+    function dapan_view(index, row) {
+        var html = []
+            row.DapAns.forEach(e => {
+                console.log("2")
+                var cheked
+                if (e.DapAnDung == true)
+                    cheked = 'checked'
+                else cheked = ''
+                html.push(
+                    '<div class="input-group mb-3">' +
+                    '<div class="input-group-text">' +
+                    '<input class="form-check-input mt-0"  ma_da="' + e.MaDapAn +'"onclick="change_da(this)" type="checkbox" ' + cheked + ' aria-label="Checkbox for following text input">' +
+                    '</div>' +
+                    '<input type="text" class="form-control"  ma_da="' + e.MaDapAn +'" value="' + e.NoiDungDapAn + '" onchange="change_da(this)" aria-label="Text input with checkbox">' +
+                    '<button class="btn btn-danger delete_da" ma_da="' + e.MaDapAn+'" onclick="del_da(this)" title="">' +
+                    '<i class="fas fa-trash-alt"></i>' +
+                    '</button>' +
+                    '</div>')
+        })
+       
+        return html.join('')
+    }
+
+    function del_da(e) {
+        console.log()
+        $.get("../api/xoadapan?madapan=" + $(e).attr("ma_da")).done(function (res) {
+            if (res.msg != "error") {
+                clear_modal()
+                get_cauhoi()
+            }
+        })
+    }
+
+    function get_cauhoi() {
+        
+        $.get("../api/ds_cauhoi?mabh=" + get_id()).then(function (res) { 
+            if (res.msg != null) {
+                $("#table_cauhoi").bootstrapTable('removeAll')
+                $("#table_cauhoi").bootstrapTable('append', res.msg)
+            }
+        })
+    }
+
+    function change_da(e) {
+        if ($(e).attr('type') == 'text') {
+            console.log($(e).parent)
+            $.post("../api/chinhsuadapan", {
+                MaDapAn: $(e).attr("ma_da"),
+                NoiDungDapAn: $(e).val(),
+            }).then(function(){
+                clear_modal()
+                get_cauhoi()
+            })
+        } else {
+            var checked = false
+            if ($(e).is(':checked'))
+                checked = true
+            $.post("../api/chinhsuadapan", {
+                MaDapAn: $(e).attr("ma_da"),
+                DapAnDung: checked
+            }).then(function(){
+                clear_modal();
+                get_cauhoi()
+            })
+        }
+    }
+
+    function btn_cauhoi(value, row, index) {
+        return [
+            '<button class="btn btn-success add"  href="javascript:void(0)" title="">',
+            '<i class="fas fa-plus-circle"></i>',
+            '</button>  ',
+            '<button class="btn btn-danger delete"  href="javascript:void(0)" title="">',
+            '<i class="fas fa-trash-alt"></i>',
+            '</button>  ',
+
+        ].join('')
+    }
+
+    function custom_btn() {
+        return {
+            btn_themkh: {
+                html: '<button type="button" name="btn_themkh" data-toggle="modal" data-target="#modal-cauhoi" class="btn btn-success"><i class="fa fas fa-plus"></i></button>',
+                event: () => {
+                }
+
+            }
+        }
+    }
 
     function update_chapter() {
         var data = CryptoJS.AES.encrypt(CKEDITOR.instances.editor.getData(), get_id()).toString();
@@ -87,9 +303,9 @@
                 swal("Thông báo", "Lưu khóa học thành công", "success").then((value) => {
                     window.location = "/AdminManage/ManageCourse"
                 });
-            else swal("Lỗi ", "Đã có lỗi xảy ra !" + data.msg, "error");
+            else swal("Lỗi ", "Đã có lỗi xảy ra !" + res.msg, "error");
         }).fail(function (data) {
-            swal("Lỗi ", "Đã có lỗi xảy ra !" + data.msg, "error");
+            swal("Lỗi ", "Đã có lỗi xảy ra !" + data.error, "error");
         });
     }
 
@@ -118,6 +334,34 @@
         $('#my-video')[0].play()
     }
 
+    function clear_modal() {
+        $('#modal-cauhoi').modal('hide');
+        $("#txt_cauhoi").val("")
+        $("option").removeAttr("selected")
+        selected_cauhoi = null
+        flagsave = true
+    }
+
+    function add_cauhoi(makt) {
+        $.post("../api/themcauhoi", {
+            NoiDungCauHoi: $("#txt_cauhoi").val(),
+            TheLoai: cate,
+            MaKT: makt
+        }).done(function (res) {
+            if (res.msg!="error") {
+                swal("Thông báo", "Lưu câu hỏi thành công", "success").then((value) => {
+                    clear_modal()
+                    get_cauhoi()
+                });
+            } else
+                swal("Lỗi ", "Đã có lỗi xảy ra !" + res.msg, "error");
+        }).fail(function (data) {
+            swal("Lỗi ", "Đã có lỗi xảy ra !" + data.error, "error");
+        });
+
+
+        
+    }
     function get_chapter() {
 
         $.get("../api/chitietbaihoc?mabh=" + get_id()).then(function (res) {
@@ -125,25 +369,60 @@
 
                 $("#my-video source").attr("src", res.msg.Video)
                 $("#txt_url").val(res.msg.Video)
-                $("#txt_tenbh").val( res.msg.GioiThieu)
-                CKEDITOR.instances['editor'].setData(CryptoJS.AES.decrypt(res.msg.LyThuyet, get_id()).toString(CryptoJS.enc.Utf8))
-
-
-                /*  $("#LyThuyet").append(CryptoJS.AES.decrypt(res.msg.LyThuyet, get_id()).toString(CryptoJS.enc.Utf8))*/
-
-                $("#chaptermodal").modal("hide")
-
-
+                $("#txt_tenbh").val(res.msg.GioiThieu)
+                var html = CryptoJS.AES.decrypt(res.msg.LyThuyet, get_id()).toString(CryptoJS.enc.Utf8)
+                console.log(html)
+                CKEDITOR.instances['editor'].setData(html)
             }
-            $("#Chapterinfo").modal("show")
-
-
             $('#my-video')[0].load()
-           /* $('#my-video')[0].play()*/
+
         })
     }
 
-    
+    function add_kiemtra() {
+        $.get("../api/themkiemtra?mabh=" + get_id()).done(function (res) {
+            if (res.msg != "error") {
+               
+                add_cauhoi(res.MaKT)
+            }
+            else
+                wal("Lỗi ", "Đã có lỗi xảy ra !" + data.msg, "error");
+        }).fail(function (data) {
+            swal("Lỗi ", "Đã có lỗi xảy ra !" + data.error, "error");
+        });
+    }
 
+    function add_da(mach) {
+        $.post("../api/themdapan",{
+            NoiDungDapAn: "Đáp án mới",
+            DapAnDung: false,
+            MaCauHoi: mach
+        }).then(function () {
+            get_cauhoi()
+        })
+    }
+
+    function del_cauhoi(mach) {
+        $.get("../api/xoacauhoi?mach=" + mach).done(function (res) {
+            if (res.msg != "error") {
+                get_cauhoi()
+            } else
+                wal("Lỗi ", "Đã có lỗi xảy ra !" + data.msg, "error");
+        }).fail(function (data) {
+            swal("Lỗi ", "Đã có lỗi xảy ra !" + data.error, "error");
+        });
+    }
+
+
+
+    window.cauhoi_event = {
+       
+        'click .add': function (e, value, row, index) {
+            add_da(row.CauHoi.MaCauHoi)
+        },
+        'click .delete': function (e, value, row, index) {
+            del_cauhoi(row.CauHoi.MaCauHoi)
+        },
+    }
 </script>
 

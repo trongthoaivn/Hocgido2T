@@ -18,12 +18,26 @@
     .item {
         margin-bottom: 20px;
     }
+    #footer {
+        position: fixed;
+        padding: 10px 10px 0px 10px;
+        right: 0;
+        width: 60px;
+        height: 80%;
+        text-align :center
+    }
 </style>
 
 
 
 
 <div class="container">
+    <div class="container" id="footer">
+        <div class="row">
+            <button type="button" style="margin-bottom:30px" class="btn btn-danger" onclick="location.href ='/AdminManage/ManageCourse'">Hủy</button>
+            <button type="button" class="btn btn-success" onclick="update_chapter()">Lưu</button>
+        </div>
+    </div>
     <h2 id="titleChaptermodal">Bài học : <input class="form-control" type="text" id="txt_tenbh" /></h2>
     <br />
     <div class=" row">
@@ -36,14 +50,21 @@
 
     </div>
     <br />
-    <div class="row" style="margin-top:10px">
+    <div class="row" style="margin-top:30px">
         <div class="col-md-6">
             <h5><b>Video</b></h5>
-            <input class="form-control" type="text" id="txt_url" />
-            <button type="button" style="margin-top:10px" class="btn btn-primary" onclick="check_video()"><i class="fas fa-search"></i></button>
-            <button type="button" style="margin-top:10px" class="btn btn-primary" onclick="reset()"><i class="fas fa-sync"></i></button>
+            <div class="btn-toolbar " role="toolbar" aria-label="Toolbar with button groups">
+                <div class="input-group">
+                    <input class="form-control" type="text" id="txt_url" aria-label="Input group example" aria-describedby="btnGroupAddon" />
+                </div>
+                <div class="btn-group " style="margin-left:10px" role="group" aria-label="First group">
+                    <button type="button" class="btn btn-primary" onclick="check_video()"><i class="fas fa-search"></i></button>
+                    <button type="button" class="btn btn-primary" onclick="reset()"><i class="fas fa-sync"></i></button>
+                </div>
+            </div>
+
             <video id="my-video"
-                   style="max-width: 100%; height: auto; width:auto"
+                   style="max-width: 100%; height: auto; width:auto; margin-top:10px"
                    @*autoplay*@
                    controls>
                 <source src="" type="video/mp4" />
@@ -77,11 +98,8 @@
         </div>
     </div>
     <br />
-    @*<div class="row">
-        <button type="button" style="margin-top:10px" class="btn btn-danger" onclick="location.href ='/AdminManage/ManageCourse'">Hủy</button>
-        <button type="button" style="margin-top:10px" class="btn btn-success" onclick="update_chapter()">Lưu</button>
+    <br />
 
-    </div>*@
 
 </div>
 
@@ -90,7 +108,7 @@
     <div class="modal-dialog  modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="titlecoursemodal">Thông tin khóa học</h5>
+                <h5 class="modal-title" id="titlecoursemodal">Thông tin câu hỏi</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -98,7 +116,7 @@
             <div class="modal-body">
                 <div class="wrap">
                     <label>Nội dung câu hỏi </label>
-                    <textarea class="form-control" type="text" id="txt_cauhoi"></textarea>
+                    <textarea class="form-control" type="text" id="txt_cauhoi" ></textarea>
                     <span class="focus-input"></span>
                 </div>
                 <div class="wrap">
@@ -113,7 +131,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-dismiss="modal">Hủy</button>
-                <button type="button" class="btn btn-primary" onclick="add_kiemtra()">Lưu</button>
+                <button type="button" class="btn btn-primary" onclick="SaveOrUpdate_cauhoi()">Lưu</button>
             </div>
         </div>
     </div>
@@ -141,14 +159,52 @@
             cate = $(this).val()
             console.log(cate)
         })
+        $("#table_cauhoi").on("dbl-click-row.bs.table", function (field, value, row, $el) {
+            flagsave = false
+            selected_cauhoi = value.CauHoi.MaCauHoi
+            $('#modal-cauhoi').modal('show');
+        });
+
+        
     });
 
-    var cate ="TN"
+    var flagsave = true
+    var cate = "TN"
+    var selected_cauhoi
+
+    function SaveOrUpdate_cauhoi() {
+        if (flagsave == true) {
+            add_kiemtra()
+        } else
+            update_cauhoi()
+    }
+
+    function update_cauhoi() {
+        $.post("../api/chinhsuacauhoi", {
+            MaCauHoi: selected_cauhoi,
+            NoiDungCauHoi: $("#txt_cauhoi").val(),
+            TheLoai: cate
+        }).done(function (res) {
+            if (res.msg!="error") {
+                swal("Thông báo", "Lưu câu hỏi thành công", "success").then((value) => {
+                    clear_modal()
+                    get_cauhoi()
+                });
+            } else
+                swal("Lỗi ", "Đã có lỗi xảy ra !" + res.msg, "error");
+            
+        }).fail(function (data) {
+            swal("Lỗi ", "Đã có lỗi xảy ra !" + data.error, "error");
+        });
+    }
+
+
+   
 
     function dapan_view(index, row) {
         var html = []
-        $.each(row, function (key, value) {
             row.DapAns.forEach(e => {
+                console.log("2")
                 var cheked
                 if (e.DapAnDung == true)
                     cheked = 'checked'
@@ -156,16 +212,26 @@
                 html.push(
                     '<div class="input-group mb-3">' +
                     '<div class="input-group-text">' +
-                    '<input class="form-check-input mt-0" type="checkbox" ' + cheked + ' aria-label="Checkbox for following text input">' +
+                    '<input class="form-check-input mt-0"  ma_da="' + e.MaDapAn +'"onclick="change_da(this)" type="checkbox" ' + cheked + ' aria-label="Checkbox for following text input">' +
                     '</div>' +
-                    '<input type="text" class="form-control" value="' + e.NoiDungDapAn + '" aria-label="Text input with checkbox">' +
-                    '<button class="btn btn-danger delete"  href="javascript:void(0)" title="">' +
+                    '<input type="text" class="form-control"  ma_da="' + e.MaDapAn +'" value="' + e.NoiDungDapAn + '" onchange="change_da(this)" aria-label="Text input with checkbox">' +
+                    '<button class="btn btn-danger delete_da" ma_da="' + e.MaDapAn+'" onclick="del_da(this)" title="">' +
                     '<i class="fas fa-trash-alt"></i>' +
                     '</button>' +
                     '</div>')
-            })
         })
+       
         return html.join('')
+    }
+
+    function del_da(e) {
+        console.log()
+        $.get("../api/xoadapan?madapan=" + $(e).attr("ma_da")).done(function (res) {
+            if (res.msg != "error") {
+                clear_modal()
+                get_cauhoi()
+            }
+        })
     }
 
     function get_cauhoi() {
@@ -173,17 +239,37 @@
         $.get("../api/ds_cauhoi?mabh=" + get_id()).then(function (res) { 
             if (res.msg != null) {
                 $("#table_cauhoi").bootstrapTable('removeAll')
-
                 $("#table_cauhoi").bootstrapTable('append', res.msg)
             }
         })
     }
 
+    function change_da(e) {
+        if ($(e).attr('type') == 'text') {
+            console.log($(e).parent)
+            $.post("../api/chinhsuadapan", {
+                MaDapAn: $(e).attr("ma_da"),
+                NoiDungDapAn: $(e).val(),
+            }).then(function(){
+                clear_modal()
+                get_cauhoi()
+            })
+        } else {
+            var checked = false
+            if ($(e).is(':checked'))
+                checked = true
+            $.post("../api/chinhsuadapan", {
+                MaDapAn: $(e).attr("ma_da"),
+                DapAnDung: checked
+            }).then(function(){
+                clear_modal();
+                get_cauhoi()
+            })
+        }
+    }
+
     function btn_cauhoi(value, row, index) {
         return [
-            '<button class="btn btn-info detail"  href="javascript:void(0)" title="">',
-            '<i class="fas fa-list-alt"></i>',
-            '</button>  ',
             '<button class="btn btn-success add"  href="javascript:void(0)" title="">',
             '<i class="fas fa-plus-circle"></i>',
             '</button>  ',
@@ -217,7 +303,7 @@
                 swal("Thông báo", "Lưu khóa học thành công", "success").then((value) => {
                     window.location = "/AdminManage/ManageCourse"
                 });
-            else swal("Lỗi ", "Đã có lỗi xảy ra !" + data.msg, "error");
+            else swal("Lỗi ", "Đã có lỗi xảy ra !" + res.msg, "error");
         }).fail(function (data) {
             swal("Lỗi ", "Đã có lỗi xảy ra !" + data.error, "error");
         });
@@ -248,21 +334,27 @@
         $('#my-video')[0].play()
     }
 
+    function clear_modal() {
+        $('#modal-cauhoi').modal('hide');
+        $("#txt_cauhoi").val("")
+        $("option").removeAttr("selected")
+        selected_cauhoi = null
+        flagsave = true
+    }
+
     function add_cauhoi(makt) {
         $.post("../api/themcauhoi", {
             NoiDungCauHoi: $("#txt_cauhoi").val(),
             TheLoai: cate,
             MaKT: makt
         }).done(function (res) {
-            swal("Thông báo", "Lưu khóa học thành công", "success").then((value) => {
-                $('#modal-cauhoi').modal('hide');
-                $("#txt_cauhoi").val("")
-                $("option").removeAttr("selected")
-                $("tbody").remove()
-                get_cauhoi()
-               
-                
-            });
+            if (res.msg!="error") {
+                swal("Thông báo", "Lưu câu hỏi thành công", "success").then((value) => {
+                    clear_modal()
+                    get_cauhoi()
+                });
+            } else
+                swal("Lỗi ", "Đã có lỗi xảy ra !" + res.msg, "error");
         }).fail(function (data) {
             swal("Lỗi ", "Đã có lỗi xảy ra !" + data.error, "error");
         });
@@ -278,16 +370,10 @@
                 $("#my-video source").attr("src", res.msg.Video)
                 $("#txt_url").val(res.msg.Video)
                 $("#txt_tenbh").val(res.msg.GioiThieu)
-                CKEDITOR.instances['editor'].setData(CryptoJS.AES.decrypt(res.msg.LyThuyet, get_id()).toString(CryptoJS.enc.Utf8))
-
-
-                $("#chaptermodal").modal("hide")
-
-
+                var html = CryptoJS.AES.decrypt(res.msg.LyThuyet, get_id()).toString(CryptoJS.enc.Utf8)
+                console.log(html)
+                CKEDITOR.instances['editor'].setData(html)
             }
-            $("#Chapterinfo").modal("show")
-
-
             $('#my-video')[0].load()
 
         })
@@ -306,6 +392,16 @@
         });
     }
 
+    function add_da(mach) {
+        $.post("../api/themdapan",{
+            NoiDungDapAn: "Đáp án mới",
+            DapAnDung: false,
+            MaCauHoi: mach
+        }).then(function () {
+            get_cauhoi()
+        })
+    }
+
     function del_cauhoi(mach) {
         $.get("../api/xoacauhoi?mach=" + mach).done(function (res) {
             if (res.msg != "error") {
@@ -317,12 +413,12 @@
         });
     }
 
+
+
     window.cauhoi_event = {
-        'click .detail': function (e, value, row, index) {
-            console.log("chitite" + row.CauHoi.MaCauHoi)
-        },
+       
         'click .add': function (e, value, row, index) {
-            console.log("add" + row.CauHoi.MaCauHoi)
+            add_da(row.CauHoi.MaCauHoi)
         },
         'click .delete': function (e, value, row, index) {
             del_cauhoi(row.CauHoi.MaCauHoi)

@@ -874,7 +874,9 @@ namespace Hocgido2T.Controllers
                 var dapan = db.DapAns.First(p => p.MaDapAn.Equals(dapAnViewModel.MaDapAn));
                 if (dapan != null)
                 {
+                    if(dapAnViewModel.NoiDungDapAn!=null)
                     dapan.NoiDungDapAn = dapAnViewModel.NoiDungDapAn;
+                    if(dapAnViewModel.DapAnDung!=null)
                     dapan.DapAnDung = dapAnViewModel.DapAnDung;
                     db.SaveChanges();
                     return Json(new
