@@ -26,10 +26,10 @@
                        data-url="../api/ds_khoahoc">
                     <thead>
                         <tr>
-                            <th data-field="TenKH">Tên khóa học</th>
-                            <th data-field="MoTaKH">Mô tả</th>
-                            <th data-field="LuotDK">#</th>
-                            <th data-field="Baihoc" data-formatter="chitietbaihoc" data-events="get_baihoc">Tác vụ</th>
+                            <th  data-field="TenKH">Tên khóa học</th>
+                            <th  data-field="MoTaKH">Mô tả</th>
+                            <th  data-field="LuotDK">#</th>
+                            <th  data-field="Baihoc" data-formatter="chitietbaihoc" data-events="get_baihoc">Tác vụ</th>
                         </tr>
                     </thead>
                 </table>
@@ -47,7 +47,7 @@
             <div class="modal-body">
                 <div class="wrap">
                     <label>Tên khóa học</label>
-                    <input class="form-control" type="text" id="txt_tenkh" />
+                    <input class="form-control"  type="text" id="txt_tenkh" />
                     <span class="focus-input"></span>
                 </div>
                 <div class="wrap">
@@ -74,7 +74,7 @@
     </div>
 </div>
 
-<div class="modal fade" id="chaptermodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="chaptermodal" value="" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -90,13 +90,16 @@
                        data-toggle="table"
                        data-height="540"
                        data-search="true"
-                       data-buttons="custom_btn"
+                       data-show-refresh="true"
+                       data-buttons="btn_add_baihoc"
                        data-pagination="true"
-                       data-page-list="[5, 25, 50, 100, 200, All]">
+                       data-page-list="[ 25, 50, 100, 200, All]"
+                       >
                     <thead>
                         <tr>
                             <th data-field="GioiThieu">Bài học</th>
                             <th data-field="LuocHoc">#</th>
+                            <th data-field="MaBaiHoc" data-formatter="xoabaihoc" data-events="chap_event">Tác vụ</th>
                         </tr>
                     </thead>
 

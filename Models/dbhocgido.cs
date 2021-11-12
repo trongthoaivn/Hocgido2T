@@ -21,6 +21,7 @@ namespace Hocgido2T.Models
         public virtual DbSet<KiemTra> KiemTras { get; set; }
         public virtual DbSet<LuuBaiHoc> LuuBaiHocs { get; set; }
         public virtual DbSet<NguoiDung> NguoiDungs { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<TaiKhoan> TaiKhoans { get; set; }
         public virtual DbSet<TinhTrangBH> TinhTrangBHs { get; set; }
 

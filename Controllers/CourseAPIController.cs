@@ -933,24 +933,171 @@ namespace Hocgido2T.Controllers
             }
         }
 
-        //[HttpGet]
-        //[Route("api/xoacauhoi")]
-        //public IHttpActionResult XoaCauHoi(String mach)
-        //{
-        //    try
-        //    {
-        //        var cauhoi = db.CauHois();
+        [HttpGet]
+        [Route("api/xoacauhoi")]
+        public IHttpActionResult XoaCauHoi(String mach)
+        {
+            try
+            {
+                var dapan = db.DapAns.Where(p => p.MaCauHoi.Equals(mach)).ToList();
+                if (dapan != null)
+                {
+                    foreach (DapAn item in dapan)
+                    {
+                        item.MaCauHoi = null;
+                        db.DapAns.Remove(item);
+                    }
+                    db.CauHois.Remove(db.CauHois.First(p => p.MaCauHoi.Equals(mach)));
+                    db.SaveChanges();
+                    return Json(new
+                    {
+                        msg = "ok",
+                    });
+                }else
+                    return Json(new
+                    {
+                        msg = "error",
+                    });
 
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        return Json(new
-        //        {
-        //            msg = "error",
-        //            error = e.Message
-        //        });
+            }
+            catch (Exception e)
+            {
+                return Json(new
+                {
+                    msg = "error",
+                    error = e.Message
+                });
 
-        //    }
-        //}
+            }
+        }
+
+        [HttpGet]
+        [Route("api/xoabaihoc")]
+        public IHttpActionResult XoaBaiHoc(String mabh)
+        {
+            try
+            {
+                var dapan = (from DA in db.DapAns
+                             join CH in db.CauHois on DA.MaCauHoi equals CH.MaCauHoi
+                             join KT in db.KiemTras on CH.MaKT equals KT.MaKT
+                             join BH in db.BaiHocs on KT.MaBaiHoc equals BH.MaBaiHoc
+                             where BH.MaBaiHoc.Equals(mabh)
+                             select DA
+                             ).ToList();
+                if (dapan != null) db.DapAns.RemoveRange(dapan);
+
+                var cauhoi = (from CH in db.CauHois
+                              join KT in db.KiemTras on CH.MaKT equals KT.MaKT
+                              join BH in db.BaiHocs on KT.MaBaiHoc equals BH.MaBaiHoc
+                              where BH.MaBaiHoc.Equals(mabh)
+                              select CH
+                              ).ToList();
+                if (cauhoi != null) db.CauHois.RemoveRange(cauhoi);
+
+                var kiemtra = (from KT in db.KiemTras
+                               join BH in db.BaiHocs on KT.MaBaiHoc equals BH.MaBaiHoc
+                               where BH.MaBaiHoc.Equals(mabh)
+                               select KT
+                               ).ToList();
+                if (kiemtra != null) db.KiemTras.RemoveRange(kiemtra);
+
+                var binhluan = db.BinhLuans.Where(p => p.MaBaiHoc.Equals(mabh)).ToList();
+                if (binhluan!=null) db.BinhLuans.RemoveRange(binhluan);
+
+                var luu = db.LuuBaiHocs.Where(p => p.MaBaiHoc.Equals(mabh)).ToList();
+                if(luu!=null) db.LuuBaiHocs.RemoveRange(luu);
+
+                var baihoc = db.BaiHocs.First(p => p.MaBaiHoc.Equals(mabh));
+                if(baihoc !=null) db.BaiHocs.Remove(baihoc);
+                db.SaveChanges();
+                return Json(new
+                {
+                    msg = "ok",
+                });
+
+            }
+            catch (Exception e)
+            {
+                return Json(new
+                {
+                    msg = "error",
+                    error = e.Message
+                });
+
+            }
+        }
+
+        [HttpGet]
+        [Route("api/xoakhoahoc")]
+        public IHttpActionResult XoakhoaHoc(String makh)
+        {
+            try
+            {
+                var dapan = (from DA in db.DapAns
+                             join CH in db.CauHois on DA.MaCauHoi equals CH.MaCauHoi
+                             join KT in db.KiemTras on CH.MaKT equals KT.MaKT
+                             join BH in db.BaiHocs on KT.MaBaiHoc equals BH.MaBaiHoc
+                             join KH in db.KhoaHocs on BH.MaKH equals KH.MaKH
+                             where KH.MaKH.Equals(makh)
+                             select DA
+                            ).ToList();
+                if (dapan != null) db.DapAns.RemoveRange(dapan);
+
+                var cauhoi = (from CH in db.CauHois
+                              join KT in db.KiemTras on CH.MaKT equals KT.MaKT
+                              join BH in db.BaiHocs on KT.MaBaiHoc equals BH.MaBaiHoc
+                              join KH in db.KhoaHocs on BH.MaKH equals KH.MaKH
+                              where KH.MaKH.Equals(makh)
+                              select CH
+                              ).ToList();
+                if (cauhoi != null) db.CauHois.RemoveRange(cauhoi);
+
+                var kiemtra = (from KT in db.KiemTras
+                               join BH in db.BaiHocs on KT.MaBaiHoc equals BH.MaBaiHoc
+                               join KH in db.KhoaHocs on BH.MaKH equals KH.MaKH
+                               where KH.MaKH.Equals(makh)
+                               select KT
+                               ).ToList();
+                if (kiemtra != null) db.KiemTras.RemoveRange(kiemtra);
+
+                var binhluan = (from BL in db.BinhLuans
+                                join BH in db.BaiHocs on BL.MaBaiHoc equals BH.MaBaiHoc
+                                join KH in db.KhoaHocs on BH.MaKH equals KH.MaKH
+                                where KH.MaKH.Equals(makh)
+                                select BL
+                                ).ToList();
+                if (binhluan != null) db.BinhLuans.RemoveRange(binhluan);
+
+
+                var luu = (from Luu in db.LuuBaiHocs
+                                join BH in db.BaiHocs on Luu.MaBaiHoc equals BH.MaBaiHoc
+                                join KH in db.KhoaHocs on BH.MaKH equals KH.MaKH
+                                where KH.MaKH.Equals(makh)
+                                select Luu
+                                ).ToList();
+                if (luu != null) db.LuuBaiHocs.RemoveRange(luu);
+
+                var khoahocdk = db.KhoaHocDKs.Where(p => p.MaKH.Equals(makh)).ToList();
+                if (khoahocdk!=null) db.KhoaHocDKs.RemoveRange(khoahocdk);
+
+                var khoahoc = db.KhoaHocs.First(p => p.MaKH.Equals(makh));
+                if(khoahoc!=null) db.KhoaHocs.Remove(khoahoc);
+
+                db.SaveChanges();
+                return Json(new
+                {
+                    msg = "ok",
+                });
+            }
+            catch (Exception e)
+            {
+                return Json(new
+                {
+                    msg = "error",
+                    error = e.Message
+                });
+
+            }
+        }
     }
 }
