@@ -207,8 +207,10 @@
     <Content Include="Global.asax" />
     <Content Include="images\3323618-ai.svg" />
     <Content Include="images\bg-introduction-banner.png" />
+    <Content Include="images\bg-slider.png" />
     <Content Include="images\bg_pattern.svg" />
     <Content Include="images\img.jpg" />
+    <Content Include="images\JavaScript frameworks-pana.svg" />
     <Content Include="images\Logo_ngang.png" />
     <Content Include="images\Logo_tron.png" />
     <Content Include="images\Logo_vuong.png" />
@@ -765,7 +767,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>54720</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44390/</IISUrl>
+          <IISUrl>http://localhost:44390/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

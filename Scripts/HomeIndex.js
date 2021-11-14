@@ -5,12 +5,13 @@ $(document).ready(function () {
 });
     
 
+
 function baner_item(tenkh,hinhanh) {
     var item = 
-        '<div style="text-align:center;" class="col-lg-3 col-md-1 py-3 wow fadeInUp">'+
+        '<div style="text-align:center;" class="col-lg-3 py-3 wow fadeInUp">'+
         '<div  class="card-blog">'+
         '<div  class="header">'+
-        '<div class="post-thumb">' +
+        '<div style="height: 145px" class="post-thumb">' +
         '<img style="width:100%;height: auto;" src="' + hinhanh + '" alt="">' +
         '</div>'+
         '</div>'+
@@ -28,14 +29,14 @@ function course_item() {
 }
 
 function init() {
-    $("#baner4").append(baner_item("Linux", "https://media.discordapp.net/attachments/905409110122561537/905409596515045396/ubuntu-logo.png"))
+    $("#baner4").append(baner_item("Linux", "https://media.discordapp.net/attachments/909009794084532256/909009813248294912/00-Linux.png"))
     $("#baner4").append(baner_item(".Net", "https://media.discordapp.net/attachments/905409110122561537/905411762730446858/Microsoft-dotnet.png"))
-    $("#baner4").append(baner_item("Mobile App", "https://media.discordapp.net/attachments/905409110122561537/905413299477315614/react-native.png"))
-    $("#baner4").append(baner_item("Web Development", "https://cdn.discordapp.com/attachments/905409110122561537/905414975458271232/5-Things-to-know-to-become-a-Web-Developer-in-2021.png"))
+    $("#baner4").append(baner_item("Mobile App", "https://media.discordapp.net/attachments/909009794084532256/909361235676512296/MOBILE-APP-DEVELOPMENT.png"))
+    $("#baner4").append(baner_item("Web Development", "https://media.discordapp.net/attachments/909009794084532256/909362029515653140/cssimg.png"))
     $("#baner4").append(baner_item("Database", "https://cdn.discordapp.com/attachments/905409110122561537/905416151046172682/blob-15934489781641x.png"))
-    $("#baner4").append(baner_item("Blockchain", "https://media.discordapp.net/attachments/905409110122561537/905416603687084052/dac-diem-noi-troi-cua-block-chain-1-1.png"))
-    $("#baner4").append(baner_item("Tool and Utilities", "https://cdn.discordapp.com/attachments/905409110122561537/905417099650936872/utilities-icon-4.png"))
-    $("#baner4").append(baner_item("Security", "https://media.discordapp.net/attachments/905409110122561537/905417515591688232/img-header-security.png"))
+    $("#baner4").append(baner_item("Blockchain", "https://media.discordapp.net/attachments/909009794084532256/909362562632654859/Ways-in-which-trade-finance-can-be-reshaped-by-blockchain.png?width=1193&height=671"))
+    $("#baner4").append(baner_item("Tool and Utilities", "https://media.discordapp.net/attachments/909009794084532256/909366173764812830/top-free-seo-tools-5f110b597b71e.png?width=1278&height=671"))
+    $("#baner4").append(baner_item("Security", "https://media.discordapp.net/attachments/909009794084532256/909364637336731699/Machine-Learning-for-Healthcare-Security.png"))
 }
 
 
