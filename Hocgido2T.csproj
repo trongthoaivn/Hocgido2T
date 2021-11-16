@@ -189,6 +189,7 @@
   <ItemGroup>
     <Content Include="Content\404page.css" />
     <Content Include="Content\bootstrap-table.min.css" />
+    <Content Include="Content\Contact.css" />
     <Content Include="Content\dashboard-admin.css" />
     <Content Include="Content\dashboard.css" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -206,15 +207,20 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="images\3323618-ai.svg" />
+    <Content Include="images\be.svg" />
     <Content Include="images\bg-introduction-banner.png" />
     <Content Include="images\bg-slider.png" />
     <Content Include="images\bg_pattern.svg" />
+    <Content Include="images\fe.svg" />
     <Content Include="images\img.jpg" />
     <Content Include="images\JavaScript frameworks-pana.svg" />
     <Content Include="images\Logo_ngang.png" />
     <Content Include="images\Logo_tron.png" />
     <Content Include="images\Logo_vuong.png" />
+    <Content Include="images\map.jpg" />
     <Content Include="images\p404.png" />
+    <Content Include="images\pp1.jpg" />
+    <Content Include="images\pp2.jpg" />
     <Content Include="images\user.png" />
     <Content Include="Content\animate.css" />
     <Content Include="images\world_pattern.svg" />
