@@ -4,6 +4,23 @@
     box-sizing: border-box;
 }
 
+
+/*header*/
+.bg {
+    background: url(../images/map.jpg);
+    height: 30vh;
+    filter: blur(1px);
+}
+
+.head {
+    background-color: rgb(86, 99, 214);
+    border-radius: 5px;
+    margin-top: -40px;
+    -webkit-box-shadow: 0px 10px 20px -8px rgba(77, 39, 245);
+    -moz-box-shadow: 0px 10px 20px -8px rgba(77, 39, 245);
+    box-shadow: 0px 10px 20px -8px rgba(77, 39, 245);
+}
+
 /*contact card*/
 
 .card1{
@@ -112,19 +129,4 @@
     cursor: pointer;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
-}
-/*contact*/
-.bg{
-    background: url(../images/map.jpg);
-    height: 30vh;
-    filter: blur(1px);
-}
-
-.head {
-    background-color: rgb(86, 99, 214);
-    border-radius: 5px;
-    margin-top: -40px;
-    -webkit-box-shadow: 0px 10px 20px -8px rgba(77, 39, 245);
-    -moz-box-shadow: 0px 10px 20px -8px rgba(77, 39, 245);
-    box-shadow: 0px 10px 20px -8px rgba(77, 39, 245);
 }

@@ -190,6 +190,7 @@
     <Content Include="Content\404page.css" />
     <Content Include="Content\bootstrap-table.min.css" />
     <Content Include="Content\Contact.css" />
+    <Content Include="Content\Courses.css" />
     <Content Include="Content\dashboard-admin.css" />
     <Content Include="Content\dashboard.css" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -211,6 +212,7 @@
     <Content Include="images\bg-introduction-banner.png" />
     <Content Include="images\bg-slider.png" />
     <Content Include="images\bg_pattern.svg" />
+    <Content Include="images\code.jpg" />
     <Content Include="images\fe.svg" />
     <Content Include="images\img.jpg" />
     <Content Include="images\JavaScript frameworks-pana.svg" />
