@@ -46,5 +46,11 @@ namespace Hocgido2T.Controllers
 
             return View();
         }
+        public ActionResult Learn()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
     }
 }
