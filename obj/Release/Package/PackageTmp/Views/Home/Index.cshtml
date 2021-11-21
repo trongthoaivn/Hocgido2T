@@ -1,8 +1,16 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+<!--slider css-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <script src="~/Scripts/HomeIndex.js"></script>
+
+<!--slider js-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.js" integrity="sha512-WNZwVebQjhSxEzwbettGuQgWxbpYdoLf7mH+25A7sfQbbxKeS5SQ9QBf97zOY4nOlwtksgDA/czSTmfj4DUEiQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <div class="container">
     <div class="page-banner home-banner">
@@ -14,7 +22,7 @@
             </div>
             <div class="col-md-6 py-5 wow zoomIn">
                 <div class="img-fluid text-center">
-                    <img style="width:95%" src="~/images/3323618-ai.svg" alt="">
+                    <img style="width:95%" src="~/images/JavaScript frameworks-pana.svg" alt="">
                 </div>
             </div>
         </div>
@@ -36,11 +44,11 @@
                     Dự án này phục vụ cho đồ án chuyên ngành công nghệ thông tin. Trong dự án này chúng tôi có sử dụng những tài liệu thuộc trang web khác.
                     Chúng tôi không chịu trách nhiệm về nội dung của trang web này.
                 </p>
-                <a href="about.html" class="btn btn-primary mt-3">Xem thêm</a>
+                <a href="@Url.Action("Contact","Home")" class="btn btn-primary mt-3">Xem thêm</a>
             </div>
             <div class="col-lg-6 py-3 wow fadeInRight">
                 <div class="img-fluid py-3 text-center">
-                    <img src="../assets/img/about_frame.png" alt="">
+                    <img width="80%" src="~/images/2672292.jpg" alt="">
                 </div>
             </div>
         </div>
@@ -59,7 +67,7 @@
     <div class="wrap bg-image" style="background-image: url(../../images/bg-introduction-banner.png);">
         <div class="container">
             <div class="text-center wow fadeInUp">
-                <h2 class="title-section">Bạn muốn học gì ?</h2>
+                <h2 class="title-section">Bạn muốn học gì?</h2>
             </div>
             <div id="baner4" class="row align-items-center">
             </div>
@@ -67,72 +75,709 @@
     </div> <!-- .wrap -->
 </div> <!-- .page-section -->
 
+<!--courses card-->
 <div class="page-section bg-light">
     <div id="baner5" class="container">
         <div class="text-center wow fadeInUp">
             <h2 class="title-section">Các khóa học phổ biến</h2>
-            <div class="divider mx-auto"></div>
-
+        </div>
+        <div class="row">
+            <div class="coursescard col-lg-3 py-3">
+                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                    <img src="https://king.host/blog/wp-content/uploads/2021/05/javascript-para-iniciantes-1-1280x720.png" class="img-fluid" />
+                    <a href="#!">
+                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                    </a>
+                </div>
+                <div class="card">
+                    <div class="card-header">Khóa học</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Javascript Core</h5>
+                        <button type="button" class="btn btn-outline-dark" data-mdb-ripple-color="dark">Chi tiết</button>
+                    </div>
+                    <div class="card-footer">
+                        <div class="view flex items-center">
+                            <i class="fas fa-eye"></i>
+                            <span>
+                                5.3K
+                                Lượt xem
+                            </span>
+                        </div>
+                        <div class="user flex items-center">
+                            <i class="fas fa-users"></i>
+                            <span>
+                                829
+                                Học viên
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="coursescard  col-lg-3 py-3">
+                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                    <img src="https://static.vecteezy.com/system/resources/previews/000/305/137/non_2x/vector-isometric-glowing-bitcoin-blockchain-illustration.png" class="img-fluid" />
+                    <a href="#!">
+                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                    </a>
+                </div>
+                <div class="card">
+                    <div class="card-header">Khóa học</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Bitcoin Basic</h5>
+                        <button type="button" class="btn btn-outline-dark" data-mdb-ripple-color="dark">Chi tiết</button>
+                    </div>
+                    <div class="card-footer">
+                        <div class="view flex items-center">
+                            <i class="fas fa-eye"></i>
+                            <span>
+                                703
+                                Lượt xem
+                            </span>
+                        </div>
+                        <div class="user flex items-center">
+                            <i class="fas fa-users"></i>
+                            <span>
+                                36
+                                Học viên
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="coursescard col-lg-3 py-3">
+                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                    <img src="https://www.internetx.com/fileadmin/_processed_/c/5/csm_blogbild-luxe_a9381c2fe6.png" class="img-fluid" />
+                    <a href="#!">
+                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                    </a>
+                </div>
+                <div class="card">
+                    <div class="card-header">Khóa học</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Ethereum Basic</h5>
+                        <button type="button" class="btn btn-outline-dark" data-mdb-ripple-color="dark">Chi tiết</button>
+                    </div>
+                    <div class="card-footer">
+                        <div class="view flex items-center">
+                            <i class="fas fa-eye"></i>
+                            <span>
+                                738
+                                Lượt xem
+                            </span>
+                        </div>
+                        <div class="user flex items-center">
+                            <i class="fas fa-users"></i>
+                            <span>
+                                53
+                                Học viên
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="coursescard col-lg-3 py-3">
+                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                    <img src="https://res.cloudinary.com/practicaldev/image/fetch/s--jswgkbze--/c_imagga_scale,f_auto,fl_progressive,h_900,q_auto,w_1600/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ogxz02ff3gmawyazyx3y.png" class="img-fluid" />
+                    <a href="#!">
+                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                    </a>
+                </div>
+                <div class="card">
+                    <div class="card-header">Khóa học</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Vue.js Essentitals</h5>
+                        <button type="button" class="btn btn-outline-dark" data-mdb-ripple-color="dark">Chi tiết</button>
+                    </div>
+                    <div class="card-footer">
+                        <div class="view flex items-center">
+                            <i class="fas fa-eye"></i>
+                            <span>
+                                679
+                                Lượt xem
+                            </span>
+                        </div>
+                        <div class="user flex items-center">
+                            <i class="fas fa-users"></i>
+                            <span>
+                                105
+                                Học viên
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="coursescard col-lg-3 py-3">
+                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                    <img src="https://www.maxvisionsolutions.com/media/view/2016/10/laravel-development_33.png" class="img-fluid" />
+                    <a href="#!">
+                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                    </a>
+                </div>
+                <div class="card">
+                    <div class="card-header">Khóa học</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Laravel Essentials</h5>
+                        <button type="button" class="btn btn-outline-dark" data-mdb-ripple-color="dark">Chi tiết</button>
+                    </div>
+                    <div class="card-footer">
+                        <div class="view flex items-center">
+                            <i class="fas fa-eye"></i>
+                            <span>
+                                2.8K
+                                Lượt xem
+                            </span>
+                        </div>
+                        <div class="user flex items-center">
+                            <i class="fas fa-users"></i>
+                            <span>
+                                257
+                                Học viên
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="coursescard col-lg-3 py-3">
+                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                    <img src="https://camo.githubusercontent.com/3e48574bdaba729f270fc077a671dea88085e629720dec606fbe98b4be06132b/68747470733a2f2f7374617469632e63646e2d6364706c2e636f6d2f736f757263652f31333632392f636f6465706f6c6974616e5f6d7973716c5f62616e6e65725f3730305f3335302d696d61676528373030783335302d63726f70292e706e67" class="img-fluid" />
+                    <a href="#!">
+                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                    </a>
+                </div>
+                <div class="card">
+                    <div class="card-header">Khóa học</div>
+                    <div class="card-body">
+                        <h5 class="card-title">My SQL Database</h5>
+                        <button type="button" class="btn btn-outline-dark" data-mdb-ripple-color="dark">Chi tiết</button>
+                    </div>
+                    <div class="card-footer">
+                        <div class="view flex items-center">
+                            <i class="fas fa-eye"></i>
+                            <span>
+                                748
+                                Lượt xem
+                            </span>
+                        </div>
+                        <div class="user flex items-center">
+                            <i class="fas fa-users"></i>
+                            <span>
+                                80
+                                Học viên
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="coursescard col-lg-3 py-3">
+                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                    <img src="https://pbs.twimg.com/media/EontrjWXcAII4QP.png" class="img-fluid" />
+                    <a href="#!">
+                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                    </a>
+                </div>
+                <div class="card">
+                    <div class="card-header">Khóa học</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Corda Basic</h5>
+                        <button type="button" class="btn btn-outline-dark" data-mdb-ripple-color="dark">Chi tiết</button>
+                    </div>
+                    <div class="card-footer">
+                        <div class="view flex items-center">
+                            <i class="fas fa-eye"></i>
+                            <span>
+                                288
+                                Lượt xem
+                            </span>
+                        </div>
+                        <div class="user flex items-center">
+                            <i class="fas fa-users"></i>
+                            <span>
+                                13
+                                Học viên
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="coursescard col-lg-3 py-3">
+                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                    <img src="https://ict-trainings.com/storage/app/public/course/banner_5c6a6ea24ea1e.jpg" class="img-fluid" />
+                    <a href="#!">
+                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                    </a>
+                </div>
+                <div class="card">
+                    <div class="card-header">Khóa học</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Python Essentitals</h5>
+                        <button type="button" class="btn btn-outline-dark" data-mdb-ripple-color="dark">Chi tiết</button>
+                    </div>
+                    <div class="card-footer">
+                        <div class="view flex items-center">
+                            <i class="fas fa-eye"></i>
+                            <span>
+                                632
+                                Lượt xem
+                            </span>
+                        </div>
+                        <div class="user flex items-center">
+                            <i class="fas fa-users"></i>
+                            <span>
+                                96
+                                Học viên
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div> <!-- .container -->
 </div> <!-- .page-section -->
-<!-- Blog -->
-<div class="page-section">
-    <div class="container">
-        <div class="text-center wow fadeInUp">
-            <h2  class="title-section">Tin tức mới</h2>
-            <div class="divider mx-auto"></div>
-        </div>
 
-        <div class="row mt-5">
-            <div class="col-lg-4 py-3 wow fadeInUp">
-                <div class="card-blog">
-                    <div class="header">
-                        <div class="post-thumb">
-                            <img src="../assets/img/blog/blog-1.jpg" alt="">
+<!--slider card-->
+<div class="page-section banner-info">
+    <div class="wrap bg-image" style="background-image: url(../../images/bg-slider.png);">
+        <div class="container">
+            <div class="text-center wow fadeInUp">
+                <h2 class="title-section">Khóa học mới nhất</h2>
+            </div>
+            <div class="row autoplay">
+                <div class="coursescard col-md-12">
+                    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                        <img src="https://i.ytimg.com/vi/pMJ0NI3OkYA/maxresdefault.jpg" class="img-fluid" />
+                        <a href="#!">
+                            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">Khóa học</div>
+                        <div class="card-body">
+                            <h5 class="card-title">HTML for Beginners</h5>
+                            <a href="#" type="button" class="btn btn-outline-dark" data-mdb-ripple-color="dark">Chi tiết</a>
+                        </div>
+                        <div class="card-footer">
+                            <div class="view flex items-center">
+                                <i class="fas fa-eye"></i>
+                                <span>
+                                    9.3K
+                                    Lượt xem
+                                </span>
+                            </div>
+                            <div class="user flex items-center">
+                                <i class="fas fa-users"></i>
+                                <span>
+                                    1113
+                                    Học viên
+                                </span>
+                            </div>
                         </div>
                     </div>
-                    <div class="body">
-                        <h5 class="post-title"><a href="#">Source of Content Inspiration</a></h5>
-                        <div class="post-date">Posted on <a href="#">27 Jan 2020</a></div>
-                    </div>
                 </div>
-            </div>
-
-            <div class="col-lg-4 py-3 wow fadeInUp">
-                <div class="card-blog">
-                    <div class="header">
-                        <div class="post-thumb">
-                            <img src="../assets/img/blog/blog-2.jpg" alt="">
+                <div class="coursescard col-md-12">
+                    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                        <img src="https://www.programonaut.com/wp-content/uploads/2021/09/master-the-basics-of-css.png" class="img-fluid" />
+                        <a href="#!">
+                            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">Khóa học</div>
+                        <div class="card-body">
+                            <h5 class="card-title">CSS Basic</h5>
+                            <a href="#" type="button" class="btn btn-outline-dark" data-mdb-ripple-color="dark">Chi tiết</a>
+                        </div>
+                        <div class="card-footer">
+                            <div class="view flex items-center">
+                                <i class="fas fa-eye"></i>
+                                <span>
+                                    4.1K
+                                    Lượt xem
+                                </span>
+                            </div>
+                            <div class="user flex items-center">
+                                <i class="fas fa-users"></i>
+                                <span>
+                                    578
+                                    Học viên
+                                </span>
+                            </div>
                         </div>
                     </div>
-                    <div class="body">
-                        <h5 class="post-title"><a href="#">Source of Content Inspiration</a></h5>
-                        <div class="post-date">Posted on <a href="#">27 Jan 2020</a></div>
-                    </div>
                 </div>
-            </div>
-
-            <div class="col-lg-4 py-3 wow fadeInUp">
-                <div class="card-blog">
-                    <div class="header">
-                        <div class="post-thumb">
-                            <img src="../assets/img/blog/blog-3.jpg" alt="">
+                <div class="coursescard col-md-12">
+                    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                        <img src="https://codelearn.io/Upload/Blog/react-js-co-ban-phan-1-63738082145.3856.jpg" class="img-fluid" />
+                        <a href="#!">
+                            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">Khóa học</div>
+                        <div class="card-body">
+                            <h5 class="card-title">React.js Essentitals</h5>
+                            <a href="#" type="button" class="btn btn-outline-dark" data-mdb-ripple-color="dark">Chi tiết</a>
+                        </div>
+                        <div class="card-footer">
+                            <div class="view flex items-center">
+                                <i class="fas fa-eye"></i>
+                                <span>
+                                    3.4K
+                                    Lượt xem
+                                </span>
+                            </div>
+                            <div class="user flex items-center">
+                                <i class="fas fa-users"></i>
+                                <span>
+                                    546
+                                    Học viên
+                                </span>
+                            </div>
                         </div>
                     </div>
-                    <div class="body">
-                        <h5 class="post-title"><a href="#">Source of Content Inspiration</a></h5>
-                        <div class="post-date">Posted on <a href="#">27 Jan 2020</a></div>
+                </div>
+                <div class="coursescard col-md-12">
+                    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                        <img src="https://i.ytimg.com/vi/JOIL6gof2BA/maxresdefault.jpg" class="img-fluid" />
+                        <a href="#!">
+                            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">Khóa học</div>
+                        <div class="card-body">
+                            <h5 class="card-title">Git Essentials</h5>
+                            <a href="#" type="button" class="btn btn-outline-dark" data-mdb-ripple-color="dark">Chi tiết</a>
+                        </div>
+                        <div class="card-footer">
+                            <div class="view flex items-center">
+                                <i class="fas fa-eye"></i>
+                                <span>
+                                    3.4K
+                                    Lượt xem
+                                </span>
+                            </div>
+                            <div class="user flex items-center">
+                                <i class="fas fa-users"></i>
+                                <span>
+                                    387
+                                    Học viên
+                                </span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="col-12 mt-4 text-center wow fadeInUp">
-                <a href="blog.html" class="btn btn-primary">View More</a>
+                <div class="coursescard col-md-12">
+                    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                        <img src="https://king.host/blog/wp-content/uploads/2021/05/javascript-para-iniciantes-1-1280x720.png" class="img-fluid" />
+                        <a href="#!">
+                            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">Khóa học</div>
+                        <div class="card-body">
+                            <h5 class="card-title">Javascript Core</h5>
+                            <a href="#" type="button" class="btn btn-outline-dark" data-mdb-ripple-color="dark">Chi tiết</a>
+                        </div>
+                        <div class="card-footer">
+                            <div class="view flex items-center">
+                                <i class="fas fa-eye"></i>
+                                <span>
+                                    5.1K
+                                    Lượt xem
+                                </span>
+                            </div>
+                            <div class="user flex items-center">
+                                <i class="fas fa-users"></i>
+                                <span>
+                                    819
+                                    Học viên
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="coursescard col-md-12">
+                    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                        <img src="https://nordiccoder.com/app/uploads/2019/08/Machine_learning.jpg" class="img-fluid" />
+                        <a href="#!">
+                            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">Khóa học</div>
+                        <div class="card-body">
+                            <h5 class="card-title">Machine Learning</h5>
+                            <a href="#" type="button" class="btn btn-outline-dark" data-mdb-ripple-color="dark">Chi tiết</a>
+                        </div>
+                        <div class="card-footer">
+                            <div class="view flex items-center">
+                                <i class="fas fa-eye"></i>
+                                <span>
+                                    2.2K
+                                    Lượt xem
+                                </span>
+                            </div>
+                            <div class="user flex items-center">
+                                <i class="fas fa-users"></i>
+                                <span>
+                                    257
+                                    Học viên
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="coursescard col-md-12">
+                    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                        <img src="https://localseoagency.co.za/wp-content/uploads/2020/03/Basic-metrics-on-Google-Analytics-720x400.png" class="img-fluid" />
+                        <a href="#!">
+                            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">Khóa học</div>
+                        <div class="card-body">
+                            <h5 class="card-title">Google Analytics Basic</h5>
+                            <a href="#" type="button" class="btn btn-outline-dark" data-mdb-ripple-color="dark">Chi tiết</a>
+                        </div>
+                        <div class="card-footer">
+                            <div class="view flex items-center">
+                                <i class="fas fa-eye"></i>
+                                <span>
+                                    507K
+                                    Lượt xem
+                                </span>
+                            </div>
+                            <div class="user flex items-center">
+                                <i class="fas fa-users"></i>
+                                <span>
+                                    77
+                                    Học viên
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="coursescard col-md-12">
+                    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                        <img src="https://techvccloud.mediacdn.vn/2018/12/1/the-best-software-for-php-coding-15436381747091506339169-crop-1543638181943664678300.jpg" class="img-fluid" />
+                        <a href="#!">
+                            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">Khóa học</div>
+                        <div class="card-body">
+                            <h5 class="card-title">PHP for Web</h5>
+                            <a href="#" type="button" class="btn btn-outline-dark" data-mdb-ripple-color="dark">Chi tiết</a>
+                        </div>
+                        <div class="card-footer">
+                            <div class="view flex items-center">
+                                <i class="fas fa-eye"></i>
+                                <span>
+                                    910K
+                                    Lượt xem
+                                </span>
+                            </div>
+                            <div class="user flex items-center">
+                                <i class="fas fa-users"></i>
+                                <span>
+                                    153
+                                    Học viên
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
+    <!--timeline-->
+    <div class="page-section bg-light">
+        <div class="container">
+            <div class="text-center wow fadeInUp">
+                <h2 class="title-section">Học như thế nào?</h2>
+            </div>
+
+            <!--timeline item 1-->
+            <div class="row">
+                <div class="col-auto text-center flex-column d-none d-sm-flex">
+                    <div class="row h-50">
+                        <div class="col">&nbsp;</div>
+                        <div class="col">&nbsp;</div>
+                    </div>
+                    <h5 class="m-2">
+                        <span class="badge rounded-circle bg-info border-info">&nbsp;</span>
+                    </h5>
+                    <div class="row h-50">
+                        <div class="col border-end">&nbsp;</div>
+                        <div class="col">&nbsp;</div>
+                    </div>
+                </div>
+                <div class="col py-2">
+                    <div class="card border-info shadow">
+                        <div class="card-body">
+                            <h5 class="card-title text-muted">Tự học với những tài liệu được gợi ý</h5>
+                            <p class="card-text text-muted">Hoàn thành các objective cho từng khóa học bằng cách học qua các tài liệu được gợi ý sẵn.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--timeline item 2-->
+            <div class="row">
+                <div class="col-auto text-center flex-column d-none d-sm-flex">
+                    <div class="row h-50">
+                        <div class="col border-end">&nbsp;</div>
+                        <div class="col">&nbsp;</div>
+                    </div>
+                    <h5 class="m-2">
+                        <span class="badge rounded-circle bg-primary border-primary">&nbsp;</span>
+                    </h5>
+                    <div class="row h-50">
+                        <div class="col border-end">&nbsp;</div>
+                        <div class="col">&nbsp;</div>
+                    </div>
+                </div>
+                <div class="col py-2">
+                    <div class="card border-primary shadow">
+                        <div class="card-body">
+                            <h5 class="card-title text-muted">Giành thứ hạng cao trên bảng xếp hạng</h5>
+                            <p class="card-text text-muted">Kiểm tra năng lực với bài test bằng tiếng Anh hoặc tiếng Việt và ghi tên mình vào bảng xếp hạng.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--timeline item 3-->
+            <div class="row">
+                <div class="col-auto text-center flex-column d-none d-sm-flex">
+                    <div class="row h-50">
+                        <div class="col border-end">&nbsp;</div>
+                        <div class="col">&nbsp;</div>
+                    </div>
+                    <h5 class="m-2">
+                        <span class="badge rounded-circle bg-info border-info">&nbsp;</span>
+                    </h5>
+                    <div class="row h-50">
+                        <div class="col border-end">&nbsp;</div>
+                        <div class="col">&nbsp;</div>
+                    </div>
+                </div>
+                <div class="col py-2">
+                    <div class="card border-info shadow">
+                        <div class="card-body">
+                            <h5 class="card-title text-muted">Nhận chứng chỉ của Hocgido2T</h5>
+                            <p class="card-text text-muted">Hoàn thành tất cả bài thi trong mỗi khóa học và nhận chứng chỉ của chúng tôi.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Blog -->
+    <div class="page-section">
+        <div class="container">
+            <div class="text-center wow fadeInUp">
+                <h2 class="title-section">Tin tức mới</h2>
+                <div class="divider mx-auto"></div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-lg-4 py-3 wow fadeInUp">
+                    <div class="card-blog">
+                        <div class="header">
+                            <div class="post-thumb">
+                                <img src="../assets/img/blog/blog-1.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="body">
+                            <h5 class="post-title"><a href="#">Source of Content Inspiration</a></h5>
+                            <div class="post-date">Posted on <a href="#">27 Jan 2020</a></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 py-3 wow fadeInUp">
+                    <div class="card-blog">
+                        <div class="header">
+                            <div class="post-thumb">
+                                <img src="../assets/img/blog/blog-2.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="body">
+                            <h5 class="post-title"><a href="#">Source of Content Inspiration</a></h5>
+                            <div class="post-date">Posted on <a href="#">27 Jan 2020</a></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 py-3 wow fadeInUp">
+                    <div class="card-blog">
+                        <div class="header">
+                            <div class="post-thumb">
+                                <img src="../assets/img/blog/blog-3.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="body">
+                            <h5 class="post-title"><a href="#">Source of Content Inspiration</a></h5>
+                            <div class="post-date">Posted on <a href="#">27 Jan 2020</a></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 mt-4 text-center wow fadeInUp">
+                    <a href="blog.html" class="btn btn-primary">View More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $('.autoplay').slick({
+            slidesToShow: 4,
+            slidesToScroll: 4,
+            autoplay: true,
+            autoplaySpeed: 2000,
+            responsive: [
+                {
+                    breakpoint: 1200,
+                    settings: {
+                        slidesToShow: 3
+                    }
+                },
+                {
+                    breakpoint: 1057,
+                    settings: {
+                        slidesToShow: 2
+                    }
+                },
+                {
+                    breakpoint: 991,
+                    settings: {
+                        slidesToShow: 1
+                    }
+                },
+                {
+                    breakpoint: 767,
+                    settings: {
+                        slidesToShow: 1
+                    }
+                },
+                {
+                    breakpoint: 520,
+                    settings: {
+                        slidesToShow: 1
+                    }
+                }
+
+            ]
+        });
+    </script>
 
 
 

@@ -1660,10 +1660,13 @@ a.text-dark:hover, a.text-dark:focus {
         color: #fff;
     }
 
+    .banner-info .card{
+        color: #000;
+    }
+
     .banner-info .divider {
         background-color: #fff;
     }
-
 
 .card-blog {
     display: block;

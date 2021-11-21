@@ -1,0 +1,23 @@
+﻿/*header*/
+.bg {
+    background: url(../images/code.jpg);
+    height: 30vh;
+    filter: blur(1px);
+}
+
+hr{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid #eaecee;
+}
+
+.comment-replacement{
+    background-color: #eff1f3;
+    padding: 8px 10px;
+    border-radius: 10px;
+}
+
+.media body a{
+    text-transform: none;
+}

@@ -152,6 +152,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\ViewModels\BaiHocViewModel.cs" />
+    <Compile Include="Controllers\ViewModels\BinhLuanSortViewModel.cs" />
     <Compile Include="Controllers\ViewModels\BinhLuanViewModel.cs" />
     <Compile Include="Controllers\ViewModels\CauHoiFullViewModel.cs" />
     <Compile Include="Controllers\ViewModels\CauHoiViewModel.cs" />
@@ -202,17 +203,20 @@
     <Content Include="Content\homepage.css" />
     <Content Include="Content\Learn.css" />
     <Content Include="Content\login.css" />
+    <Content Include="Content\pagination.css" />
     <Content Include="Content\register.css" />
     <Content Include="Content\user_profile.css" />
     <Content Include="Content\video-js.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="images\2672292.jpg" />
     <Content Include="images\3323618-ai.svg" />
     <Content Include="images\be.svg" />
     <Content Include="images\bg-introduction-banner.png" />
     <Content Include="images\bg-slider.png" />
     <Content Include="images\bg_pattern.svg" />
+    <Content Include="images\buffalo.png" />
     <Content Include="images\code.jpg" />
     <Content Include="images\fe.svg" />
     <Content Include="images\img.jpg" />
@@ -221,6 +225,7 @@
     <Content Include="images\Logo_tron.png" />
     <Content Include="images\Logo_vuong.png" />
     <Content Include="images\map.jpg" />
+    <Content Include="images\owl.png" />
     <Content Include="images\p404.png" />
     <Content Include="images\pp1.jpg" />
     <Content Include="images\pp2.jpg" />
@@ -229,6 +234,7 @@
     <Content Include="images\world_pattern.svg" />
     <Content Include="Scripts\aes.min.js" />
     <Content Include="Scripts\bootstrap-table.min.js" />
+    <Content Include="Scripts\ChapterManage.js" />
     <Content Include="Scripts\crypto-js.min.js" />
     <Content Include="Scripts\dashboard.js" />
     <Content Include="Scripts\bootbox.min.js" />
@@ -242,6 +248,8 @@
     </None>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\core.min.js" />
+    <Content Include="Scripts\highlight.min.js" />
+    <Content Include="Scripts\HomeCouses.js" />
     <Content Include="Scripts\HomeIndex.js" />
     <Content Include="Scripts\homepage.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -254,6 +262,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\LearnManage.js" />
     <Content Include="Scripts\login-admin.js" />
     <Content Include="Scripts\login.js" />
     <Content Include="Scripts\manage-users.js" />
@@ -664,6 +673,8 @@
     <Content Include="Scripts\ckeditor\skins\moono-lisa\images\spinner.gif" />
     <Content Include="Scripts\ckeditor\styles.js" />
     <Content Include="Scripts\ckeditor\vendor\promise.js" />
+    <Content Include="Scripts\MyCoursesManage.js" />
+    <Content Include="Scripts\pagination.min.js" />
     <Content Include="Scripts\popper.min.js" />
     <Content Include="Scripts\register.js" />
     <Content Include="Scripts\sweetalert.min.js" />
@@ -736,10 +747,11 @@
     <Content Include="Scripts\ckeditor\samples\toolbarconfigurator\lib\codemirror\LICENSE" />
     <Content Include="Scripts\ckeditor\skins\moono-lisa\readme.md" />
     <Content Include="Views\Home\Learn.cshtml" />
+    <Content Include="Views\Manage\MyCourses.cshtml" />
+    <Content Include="Views\Manage\Learn.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Learn\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -778,7 +790,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>54720</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:44390/</IISUrl>
+          <IISUrl>https://localhost:44390/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

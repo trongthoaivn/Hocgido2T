@@ -566,10 +566,14 @@ namespace Hocgido2T.Controllers
                 var list1 = db.BinhLuans.Where(p => p.MaBaiHoc.Equals(mabh));
                 if (list1 != null)
                 {
-                    List<BinhLuanViewModel> list = new List<BinhLuanViewModel>();
+                    List<BinhLuanSortViewModel> list = new List<BinhLuanSortViewModel>();
                     foreach(BinhLuan item in list1)
                     {
-                        list.Add(Hson.toJson(item));
+                        var sort = new BinhLuanSortViewModel();
+                        sort.NoiDung = item.NoiDung;
+                        sort.NguoiDung = item.NguoiDung.HoTen;
+                        sort.NgayBL = item.NgayBL;
+                        list.Add(sort);
                     }
                     return Json(new
                     {

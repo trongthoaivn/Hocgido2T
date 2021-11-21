@@ -1,0 +1,132 @@
+﻿* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+/*header*/
+.bg {
+    background: url(../images/map.jpg);
+    height: 30vh;
+    filter: blur(1px);
+}
+
+.head {
+    background-color: rgb(86, 99, 214);
+    border-radius: 5px;
+    margin-top: -40px;
+    -webkit-box-shadow: 0px 10px 20px -8px rgba(77, 39, 245);
+    -moz-box-shadow: 0px 10px 20px -8px rgba(77, 39, 245);
+    box-shadow: 0px 10px 20px -8px rgba(77, 39, 245);
+}
+
+/*contact card*/
+
+.card1{
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.img1 img {
+    height: 200px;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    width: 100%;
+}
+
+.img2 img{
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 1;
+    width: 130px;
+    height: 140px;
+    border-radius: 50%;
+    border: 7px solid #fff;
+    margin-top: -80px;
+}
+
+.card1:hover .img2 img{
+    border-color: darkcyan;
+    transition: .7s;
+}
+
+.main-text{
+    padding: 30px 0;
+    text-align: center;
+}
+
+.main-text h2{
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 20px;
+    margin: 0 0 20px;
+}
+
+.main-text p{
+    font-size: 16px;
+    padding: 0 35px;
+}
+
+.socials{
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.socials i{
+    font-size: 20px;
+    color: darkcyan;
+    padding: 0 10px;
+}
+
+
+/*details card*/
+.product-1 h5{
+    padding: 20px;
+    color: #000;
+}
+
+.card2 {
+    border: none;
+    outline: none;
+    background-color: #fff;
+    border-radius: 20px;
+}
+
+.card2:hover{
+    transform: translateY(-15px);
+    transition: transform .3s;
+}
+
+.text1{
+    font-size: 15px;
+    color: dimgrey;
+}
+
+.info{
+    line-height: 17px;
+}
+
+/*card*/
+.cost span {
+    color: #14279B;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.advise {
+    background: #5a76fd;
+}
+
+.advise:hover {
+    opacity: .8;
+}
+
+.cursor{
+    cursor: pointer;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
