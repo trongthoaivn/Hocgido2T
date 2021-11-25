@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <_PublishTargetUrl>C:\Users\trong\Desktop\ChoiGiDoStudio\Publish</_PublishTargetUrl>
-    <History>True|2021-11-21T18:04:41.8626005Z;True|2021-11-13T02:00:26.4002236+07:00;True|2021-11-08T04:01:46.1358885+07:00;True|2021-11-08T03:59:44.0414026+07:00;True|2021-11-03T19:17:54.5464607+07:00;True|2021-10-29T09:08:06.7983144+07:00;</History>
+    <History>True|2021-11-25T19:43:05.7428897Z;True|2021-11-25T21:59:04.7949202+07:00;True|2021-11-22T01:04:41.8626005+07:00;True|2021-11-13T02:00:26.4002236+07:00;True|2021-11-08T04:01:46.1358885+07:00;True|2021-11-08T03:59:44.0414026+07:00;True|2021-11-03T19:17:54.5464607+07:00;True|2021-10-29T09:08:06.7983144+07:00;</History>
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/Antlr3.Runtime.dll">
@@ -21,10 +21,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/05/2021 19:27:55</publishTime>
     </File>
     <File Include="bin/Hocgido2T.dll">
-      <publishTime>11/22/2021 01:04:39</publishTime>
+      <publishTime>11/26/2021 02:43:03</publishTime>
     </File>
     <File Include="bin/Hocgido2T.pdb">
-      <publishTime>11/22/2021 01:04:39</publishTime>
+      <publishTime>11/26/2021 02:43:03</publishTime>
     </File>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
       <publishTime>09/05/2018 16:10:50</publishTime>
@@ -267,10 +267,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>11/15/2021 08:06:57</publishTime>
     </File>
     <File Include="Content/homepage.css">
-      <publishTime>11/15/2021 08:06:57</publishTime>
+      <publishTime>11/26/2021 01:54:05</publishTime>
     </File>
     <File Include="Content/Learn.css">
-      <publishTime>11/19/2021 10:19:34</publishTime>
+      <publishTime>11/26/2021 02:22:44</publishTime>
     </File>
     <File Include="Content/login.css">
       <publishTime>10/16/2021 17:58:01</publishTime>
@@ -1725,7 +1725,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>11/21/2021 23:24:47</publishTime>
     </File>
     <File Include="Scripts/HomeCouses.js">
-      <publishTime>11/20/2021 09:37:00</publishTime>
+      <publishTime>11/26/2021 01:39:53</publishTime>
     </File>
     <File Include="Scripts/HomeIndex.js">
       <publishTime>11/15/2021 08:06:57</publishTime>
@@ -1766,8 +1766,11 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Scripts/jquery.validate.unobtrusive.min.js">
       <publishTime>09/23/2021 16:54:14</publishTime>
     </File>
+    <File Include="Scripts/LearnHome.js">
+      <publishTime>11/26/2021 02:07:17</publishTime>
+    </File>
     <File Include="Scripts/LearnManage.js">
-      <publishTime>11/22/2021 01:04:19</publishTime>
+      <publishTime>11/26/2021 02:32:39</publishTime>
     </File>
     <File Include="Scripts/login-admin.js">
       <publishTime>10/18/2021 06:21:08</publishTime>
@@ -1788,7 +1791,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>09/23/2021 16:50:31</publishTime>
     </File>
     <File Include="Scripts/MyCoursesManage.js">
-      <publishTime>11/21/2021 20:11:16</publishTime>
+      <publishTime>11/26/2021 02:42:22</publishTime>
     </File>
     <File Include="Scripts/pagination.min.js">
       <publishTime>11/19/2021 20:47:57</publishTime>
@@ -1848,25 +1851,28 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>11/19/2021 20:46:54</publishTime>
     </File>
     <File Include="Views/Home/Learn.cshtml">
-      <publishTime>11/19/2021 10:19:34</publishTime>
+      <publishTime>11/26/2021 02:06:32</publishTime>
     </File>
     <File Include="Views/Manage/Index.cshtml">
       <publishTime>10/17/2021 01:29:32</publishTime>
     </File>
     <File Include="Views/Manage/Learn.cshtml">
-      <publishTime>11/22/2021 00:27:26</publishTime>
+      <publishTime>11/26/2021 02:26:03</publishTime>
     </File>
     <File Include="Views/Manage/MyCourses.cshtml">
-      <publishTime>11/21/2021 19:32:01</publishTime>
+      <publishTime>11/24/2021 21:01:30</publishTime>
     </File>
     <File Include="Views/Manage/MyProfile.cshtml">
       <publishTime>10/22/2021 10:26:29</publishTime>
+    </File>
+    <File Include="Views/Manage/Quiz.cshtml">
+      <publishTime>11/24/2021 20:31:44</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>10/17/2021 03:05:54</publishTime>
     </File>
     <File Include="Views/Shared/_Dashboard.cshtml">
-      <publishTime>11/21/2021 18:28:38</publishTime>
+      <publishTime>11/26/2021 02:09:26</publishTime>
     </File>
     <File Include="Views/Shared/_DashboardAdmin.cshtml">
       <publishTime>11/05/2021 09:40:00</publishTime>

@@ -262,6 +262,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\LearnHome.js" />
     <Content Include="Scripts\LearnManage.js" />
     <Content Include="Scripts\login-admin.js" />
     <Content Include="Scripts\login.js" />
@@ -749,7 +750,6 @@
     <Content Include="Views\Home\Learn.cshtml" />
     <Content Include="Views\Manage\MyCourses.cshtml" />
     <Content Include="Views\Manage\Learn.cshtml" />
-    <Content Include="Views\Manage\Quiz.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

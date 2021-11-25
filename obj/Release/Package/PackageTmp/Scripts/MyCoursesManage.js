@@ -1,9 +1,30 @@
-﻿$(document).ready(function () {
+﻿
+$(document).ready(function () {
     get_couses()
    
 })
 
+function get_dschuadk() {
+    $.get("../api/ds_khchuadk?userid=" + userid).done(function (res) {
+        if (res.msg != "error") {
+            $("#list_couses").pagination({
+                dataSource: res.msg,
+                pageSize: 3,
 
+                callback: function (data, pagination) {
+                    $("#list_couses").children(".card").remove()
+                    data.forEach(e => {
+                        $("#list_couses").append(card1(e))
+                    })
+
+                    $('.paginationjs').addClass("paginationjs-big paginationjs-theme-blue")
+                    $('.paginationjs').appendTo($("#list_couses"))
+
+                }
+            })
+        }
+    })
+}
 
 function get_couses() {
     $.get("../api/ds_khoahoc_user?userid=" + userid).done(function (data) {
@@ -12,6 +33,45 @@ function get_couses() {
         }
     })
 }
+
+function card1(data) {
+    var makh = data.MaKH
+    var html = '<div class="card mb-3 data-container">' +
+        '<div class="row ">' +
+        '<div class="col-md-5" data-mdb-ripple-color="light">' +
+        ' <img style=" height:180px " src="' + data.HinhAnh + '" class="img-fluid" />' +
+        '<a href="#!">' +
+        ' <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>' +
+        '</a>' +
+        '</div>' +
+        '<div class="col-md-7">' +
+        '<div class="header mb-4"></div>' +
+        '<div class="body mb-3">' +
+        '<h5 class="title"  style="margin-top:15px">' + data.TenKH + '</h5>' +
+        '<a  type="button" class="btn btn-outline-success " onclick="register(this)" makh="' + makh + '" data-mdb-ripple-color="dark">Đăng ký</a>' +
+        '</div>' +
+        '<div class="footer">' +
+        '<i class="fas fa-eye"></i>' +
+        '<span>' + getRandomInt(1, 100) + data.LuotDK + ' Lượt xem </span>' +
+        '<i class="fas fa-users"></i>' +
+        '<span>' + data.LuotDK + ' Học viên</span>' +
+        '</div>' +
+        '</div>' +
+        '</div>' +
+        '</div>'
+
+
+    return html
+}
+
+function register(btn) {
+    $.get("../api/dangkykhoahoc?userid=" + userid + "&makh=" + $(btn).attr("makh")).done(function (res) {
+        if (res.msg != "error") {
+            get_couses()
+        }
+    })
+}
+
 
 function card(data) {
 
@@ -29,6 +89,7 @@ function card(data) {
         '<div class="body mb-3">' +
         '<h5 class="title"  style="margin-top:15px">' + data.TenKH + '</h5>' +
         '<a  type="button" class="btn btn-outline-dark " onclick="learn(this)" makh="' + makh + '" data-mdb-ripple-color="dark">Bắt đầu học</a>' +
+        '<a  type="button" style=" margin-left:20px " class="btn btn-outline-danger " onclick="huydk(this)" makh="' + makh + '" data-mdb-ripple-color="dark">Hủy đăng ký</a>' +
         '</div>' +
         '<div class="footer">' +
         '<i class="fas fa-eye"></i>' +
@@ -48,6 +109,12 @@ function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min) + min);
+}
+
+function huydk(btn) {
+    $.get("../api/huydangkykhoahoc?userid=" + userid + "&makh=" + $(btn).attr("makh")).done(function () {
+        get_couses()
+    })
 }
 
 function learn(btn) {

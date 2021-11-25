@@ -96,25 +96,5 @@ namespace Hocgido2T.Controllers
                 return RedirectToAction("Login", "Users");
             }
         }
-
-        public ActionResult Quiz(String Chapter)
-        {
-            try
-            {
-                HttpCookie cookie = HttpContext.Request.Cookies.Get("userID");
-                String maTK = cryto.Decrypt(cookie.Value);
-                NguoiDung nd = db.NguoiDungs.FirstOrDefault(p => p.MaTK.Equals(maTK) && p.TaiKhoan.Quyen.Equals("115"));
-                if (nd != null)
-                {
-                    return View(nd);
-                }
-                else
-                    return RedirectToAction("Login", "Users");
-            }
-            catch (Exception e)
-            {
-                return RedirectToAction("Login", "Users");
-            }
-        }
     }
 }

@@ -26,7 +26,7 @@ function card(data) {
         '<div class="header mb-4"></div>'+
         '<div class="body mb-3">' +
         '<h5 class="title">' + data.TenKH + '</h5>' +
-        '<a href="../Users/Login" type="button" class="btn btn-outline-dark" data-mdb-ripple-color="dark">Bắt đầu học</a>'+
+        '<a href="../Home/Learn?Courses=' + data.MaKH+'" type="button" class="btn btn-outline-dark" data-mdb-ripple-color="dark">Xem thêm</a>'+
         '</div>'+
         '<div class="footer">'+
         '<i class="fas fa-eye"></i>' +
@@ -49,7 +49,7 @@ function getRandomInt(min, max) {
 function init_couses(arr) {
     $("#list_couses").pagination({
         dataSource: arr,
-        pageSize: 1,
+        pageSize: 5,
        
         callback: function (data, pagination) {
             $("#list_couses").children(".card").remove()

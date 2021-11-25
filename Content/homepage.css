@@ -1648,8 +1648,8 @@ a.text-dark:hover, a.text-dark:focus {
 
 .banner-info {
     padding: 0;
-    background-color: #5439F8;
-    color: rgba(255, 255, 255, 0.8);
+    background-color: white;
+    color: #2D2B3A;
 }
 
     .banner-info .wrap {

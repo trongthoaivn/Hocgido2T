@@ -42,6 +42,19 @@ var time = 0
 
 var diem = 0;
 
+function luubh() {
+    $.post("../api/luubaihoc", {
+        MaBaiHoc: mabh,
+        MaND: userid
+    }).done(function (data) {
+        if(data.msg!="error")
+            swal("Thông báo!", "Đã lưu bài học thành công", "success")
+        else swal("Thông báo!", "Đã xãy ra lỗi", "error")
+    }).fail(function () {
+        swal("Thông báo!", "Đã xãy ra lỗi", "error")
+    })
+}
+
 function chuyencau(btn) {
     if (index == cauhoi.length - 1) {
         swal({

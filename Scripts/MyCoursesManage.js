@@ -89,6 +89,7 @@ function card(data) {
         '<div class="body mb-3">' +
         '<h5 class="title"  style="margin-top:15px">' + data.TenKH + '</h5>' +
         '<a  type="button" class="btn btn-outline-dark " onclick="learn(this)" makh="' + makh + '" data-mdb-ripple-color="dark">Bắt đầu học</a>' +
+        '<a  type="button" style=" margin-left:20px " class="btn btn-outline-danger " onclick="huydk(this)" makh="' + makh + '" data-mdb-ripple-color="dark">Hủy đăng ký</a>' +
         '</div>' +
         '<div class="footer">' +
         '<i class="fas fa-eye"></i>' +
@@ -108,6 +109,12 @@ function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min) + min);
+}
+
+function huydk(btn) {
+    $.get("../api/huydangkykhoahoc?userid=" + userid + "&makh=" + $(btn).attr("makh")).done(function () {
+        get_couses()
+    })
 }
 
 function learn(btn) {

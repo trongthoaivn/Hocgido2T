@@ -46,7 +46,7 @@ namespace Hocgido2T.Controllers
 
             return View();
         }
-        public ActionResult Learn()
+        public ActionResult Learn(String Courses)
         {
             ViewBag.Message = "Your contact page.";
 
