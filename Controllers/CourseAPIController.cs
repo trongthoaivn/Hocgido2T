@@ -1105,5 +1105,34 @@ namespace Hocgido2T.Controllers
 
             }
         }
+
+        [HttpGet]
+        [Route("api/ds_khchuadk")]
+        public IHttpActionResult DanhSachKHChuaDK(string userid) 
+        {
+            try
+            {
+                
+                List<KhoaHoc> listchuadk = db.KhoaHocs.Where(p => !(db.KhoaHocDKs.Where(dk => dk.MaKH == p.MaKH).Any())).ToList();
+                List<KhoaHocViewModel> khoaHocDKViews = new List<KhoaHocViewModel>();
+                foreach (KhoaHoc item in listchuadk)
+                {
+                    khoaHocDKViews.Add(Hson.toJson(item));
+                }
+                return Json(new
+                {
+                    msg = khoaHocDKViews
+                }); ;
+            }
+            catch (Exception e)
+            {
+                return Json(new
+                {
+                    msg = "error",
+                    error = e.Message
+                });
+
+            }
+        }
     }
 }

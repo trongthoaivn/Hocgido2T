@@ -49,7 +49,7 @@ function getRandomInt(min, max) {
 function init_couses(arr) {
     $("#list_couses").pagination({
         dataSource: arr,
-        pageSize: 1,
+        pageSize: 5,
        
         callback: function (data, pagination) {
             $("#list_couses").children(".card").remove()
