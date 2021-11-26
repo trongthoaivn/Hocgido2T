@@ -212,12 +212,15 @@
     <Content Include="Global.asax" />
     <Content Include="images\2672292.jpg" />
     <Content Include="images\3323618-ai.svg" />
+    <Content Include="images\ava_boy.png" />
+    <Content Include="images\ava_girl.png" />
     <Content Include="images\be.svg" />
     <Content Include="images\bg-introduction-banner.png" />
     <Content Include="images\bg-slider.png" />
     <Content Include="images\bg_pattern.svg" />
     <Content Include="images\buffalo.png" />
     <Content Include="images\code.jpg" />
+    <Content Include="images\comingsoon.jpg" />
     <Content Include="images\fe.svg" />
     <Content Include="images\img.jpg" />
     <Content Include="images\JavaScript frameworks-pana.svg" />

@@ -4,10 +4,100 @@
     Layout = "~/Views/Shared/_HomeLayout.cshtml";
 }
 
-<h2>Charts</h2>
-
+<style>
+    .bg {
+        background: url(../images/bg-slider.png);
+        height: 30vh;
+        filter: blur(1px);
+    }
+    .img-fluid {
+        clip-path: circle(27.0% at 50% 50%);
+    }
+    .card:hover {
+        z-index: 1;
+        box-shadow: 0 8px 50px rgba(0,0,0,0.2);
+        transform: scale(1.05);
+        transition: 0.3s all;
+    }
+    .card-title {
+        background: #FFECE0;
+        border: 2px solid #FBE4E8;
+        border-radius: 20px;
+        padding: 10px;
+        font-weight: 600;
+        color: black;
+    }
+</style>
 <script>
     $(document).ready(function () {
         $("#chartsli ").addClass("active")
     });
 </script>
+
+<!--header-->
+<div class="bg d-flex mask-custom justify-content-center align-items-center">
+</div>
+<!--header end-->
+
+<div class="page-section">
+    <div class="container">
+        <div class="text-center wow fadeInUp">
+            <h2 class="title-section"><i class="fas fa-medal"></i> Người học hàng đầu</h2>
+        </div>
+        <div class="row d-flex align-items-center justify-content-center">
+            <div class="card text-center col-lg-3 py-3 m-4 ">
+                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                    <img src="~/images/ava_boy.png" class="img-fluid" />
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Thịnh Nguyễn</h5>
+                    <p class="card-text">
+                        Hạng hai<br />
+                        Có giấy chứng nhận
+                    </p>
+                </div>
+                <div class="card-footer" style="font-size: 20px; color: #FFCC1D;">
+                    <i class="fas fa-medal"></i>
+                    <i class="fas fa-medal"></i>
+                    <i class="fas fa-medal"></i>
+                </div>
+            </div>
+
+            <div class="card text-center col-lg-4 py-3 ">
+                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                    <img src="~/images/owl.png" class="img-fluid" />
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Hồng Thuận</h5>
+                    <p class="card-text">
+                        Hạng nhất<br />
+                        Có giấy chứng nhận
+                    </p>
+                </div>
+                <div class="card-footer" style="font-size: 20px; color: #FFCC1D;">
+                    <i class="fas fa-medal"></i>
+                    <i class="fas fa-medal"></i>
+                    <i class="fas fa-medal"></i>
+                </div>
+            </div>
+
+            <div class="card text-center col-lg-3 py-3 m-4 ">
+                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                    <img src="~/images/ava_girl.png" class="img-fluid" />
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Nhật Hoa</h5>
+                    <p class="card-text">
+                        Hạng ba<br />
+                        Có giấy chứng nhận
+                    </p>
+                </div>
+                <div class="card-footer" style="font-size: 20px; color: #FFCC1D;">
+                    <i class="fas fa-medal"></i>
+                    <i class="fas fa-medal"></i>
+                    <i class="fas fa-medal"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

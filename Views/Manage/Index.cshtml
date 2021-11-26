@@ -4,8 +4,456 @@
     Layout = "~/Views/Shared/_Dashboard.cshtml";
 
 }
+<style>
+    .card{
+        margin-bottom: 24px;
+        border: none;
+        box-shadow: 0 0 0.875rem 0 rgba(33,37,41,.05);
+    }
+    .card-body{
+        flex: 1 1 auto;
+        min-height: 1px;
+        padding: 1.25rem;
+    }
+    .card-title{
+        font-size: 1.6rem;
+        color: #495057;
+    }
+    .card-body h1{
+        font-size: 1.5rem;
+        font-weight: 400;
+        line-height: 1.2;
+        color: #000;
+    }
+    .text-gray-800{
+        color: #5a5c69!important;
+        font-size: 1.75rem;
+        font-weight: 400;
+        line-height: 1.2;
+    }
+    .shadow-sm{
+        box-shadow: 0 .125rem .25rem 0 rgba(58,59,69,.2) !important;
+    }
+    .btn-sm{
+        padding: .25rem .5rem;
+        font-size: .875rem;
+        line-height: 1.5;
+        border-radius: .2rem;
+    }
+    .font-16{
+        font-size: 16px;
+    }
+    .card .card-title{
+        position: relative;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+    .card .card-subtitle{
+        font-weight: 300;
+        margin-bottom: 10px;
+        color: #a1aab2;
+        margin-top: 0.375rem;
+    }
+    .m-r-10{
+        margin-right: 10px;
+    }
+    .btn-circle{
+        border-radius: 100%;
+        width: 40px;
+        height: 40px;
+        padding: 10px;
+    }
+    .btn-info{
+        color: #fff;
+        background-color: #2962FF;
+        border-color: #2962FF;
+    }
+    .table td,
+    .table th{
+        padding: 1rem;
+        font-size: 14px;
+        color: #333;
+        vertical-align: top;
+        border-top: 1px solid #dee2e6;
+    }
+    .table h5{
+        font-size: 16px;
+        font-weight: 600;
+        color: #585858;
+    }
 
-<h2>Index</h2>
+    .btn-orange{
+        color: #212529;
+        background-color: #fb8c00;
+        border-color: #fb8c00;
+    }
+    .btn-success {
+        color: #fff;
+        background-color: #36bea6;
+        border-color: #36bea6;
+    }
+    .btn-purple {
+        color: #fff;
+        background-color: #7460ee;
+        border-color: #7460ee;
+    }
+</style>
+
+<div class="page-section">
+    <div class="container">
+        <div class="col-md-12 mt-lg-4 mt-4">
+            <div class="d-flex align-items-center justify-content-between mb-4">
+                <h1 class="h3 mb-0 text-gray-800">Thống kê khóa học</h1>
+                <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                    <i class="fas fa-download fa-sm text-white-50"></i>
+                    Tải dữ liệu
+                </a>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-view-title mb-4">
+                                Đăng ký khóa học
+                            </h5>
+                            <h1 class="display-5 mt-1 mb-3">
+                                1.000 thành viên
+                            </h1>
+                            <div class="mb-1">
+                                <span class="text-danger"><i class="fas fa-arrow-down"></i> Update</span>
+                                <span class="text-muted">từ tuần trước</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-view-title mb-4">
+                                Tham gia khóa học 
+                            </h5>
+                            <h1 class="display-5 mt-1 mb-3">
+                                600 thành viên
+                            </h1>
+                            <div class="mb-1">
+                                <span class="text-danger"><i class="fas fa-arrow-down"></i> Update</span>
+                                <span class="text-muted">2 ngày trước</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-view-title mb-4">
+                                Bình luận
+                            </h5>
+                            <h1 class="display-5 mt-1 mb-3">
+                                300 thành viên
+                            </h1>
+                            <div class="mb-1">
+                                <span class="text-danger"><i class="fas fa-arrow-down"></i> Update</span>
+                                <span class="text-muted">4 ngày trước</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-view-title mb-4">
+                                Góp ý
+                            </h5>
+                            <h1 class="display-5 mt-1 mb-3">
+                                100 thành viên
+                            </h1>
+                            <div class="mb-1">
+                                <span class="text-danger"><i class="fas fa-arrow-down"></i> Update</span>
+                                <span class="text-muted">6 ngày trước</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12 mt-4">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-md-flex align-items-center">
+                    </div>
+                    <h4 class="card-title">
+                        Danh sách thành viên ủng hộ
+                    </h4>
+                    <h5 class="card-subtitle">
+                        các khóa học Hocgido2T
+                    </h5>
+                    <div class="ml mt-3">
+                        <div class="dl">
+                            <select class="custom-select">
+                                <option value="0" selected>Hàng tháng</option>
+                                <option value="0">Hàng tuần</option>
+                                <option value="0">Hàng ngày</option>
+                                <option value="0">Hàng năm</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table v-middle">
+                <thead>
+                    <tr class="bg-light">
+                        <th class="border-top-0">Họ tên</th>
+                        <th class="border-top-0">Ngày sinh</th>
+                        <th class="border-top-0">Tên tài khoản</th>
+                        <th class="border-top-0">Khóa học tham gia</th>
+                        <th class="border-top-0">Bài viết</th>
+                        <th class="border-top-0">Bình luận</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div class="m-r-10">
+                                    <a class="btn btn-orange btn-info text-white">
+                                        1
+                                    </a>
+                                </div>
+                                <div>
+                                    <h4 class="m-b-0 font-16">
+                                        Nguyễn Minh Khoa
+                                    </h4>
+                                </div>
+                            </div>
+                        </td>
+
+                        <td>
+                            16/08/2000
+                        </td>
+                        <td>
+                            Khoa123
+                        </td>
+                        <td>
+                            <label class="label label-danger">100 khóa học</label>
+                        </td>
+                        <td>
+                            20
+                        </td>
+                        <td>
+                            10
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div class="m-r-10">
+                                    <a class="btn btn-success btn-info text-white">
+                                        2
+                                    </a>
+                                </div>
+                                <div>
+                                    <h4 class="m-b-0 font-16">
+                                        Huỳnh Ngọc Ánh
+                                    </h4>
+                                </div>
+                            </div>
+                        </td>
+
+                        <td>
+                            20/05/2000
+                        </td>
+                        <td>
+                            NAnh2005
+                        </td>
+                        <td>
+                            <label class="label label-danger">80 khóa học</label>
+                        </td>
+                        <td>
+                            10
+                        </td>
+                        <td>
+                            10
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div class="m-r-10">
+                                    <a class="btn btn-purple btn-info text-white">
+                                        3
+                                    </a>
+                                </div>
+                                <div>
+                                    <h4 class="m-b-0 font-16">
+                                        Nguyễn Văn An
+                                    </h4>
+                                </div>
+                            </div>
+                        </td>
+
+                        <td>
+                            30/05/2000
+                        </td>
+                        <td>
+                            An305
+                        </td>
+                        <td>
+                            <label class="label label-danger">70 khóa học</label>
+                        </td>
+                        <td>
+                            5
+                        </td>
+                        <td>
+                            10
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div class="m-r-10">
+                                    <a class="btn btn-success btn-info text-white">
+                                        4
+                                    </a>
+                                </div>
+                                <div>
+                                    <h4 class="m-b-0 font-16">
+                                        Nguyễn Nhật Hoa
+                                    </h4>
+                                </div>
+                            </div>
+                        </td>
+
+                        <td>
+                            07/04/2000
+                        </td>
+                        <td>
+                            Hoa740
+                        </td>
+                        <td>
+                            <label class="label label-danger">75 khóa học</label>
+                        </td>
+                        <td>
+                            10
+                        </td>
+                        <td>
+                            5
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div class="m-r-10">
+                                    <a class="btn btn-success btn-info text-white">
+                                        4
+                                    </a>
+                                </div>
+                                <div>
+                                    <h4 class="m-b-0 font-16">
+                                        Nguyễn Nhật Hoa
+                                    </h4>
+                                </div>
+                            </div>
+                        </td>
+
+                        <td>
+                            23/09/2000
+                        </td>
+                        <td>
+                            Hoa740
+                        </td>
+                        <td>
+                            <label class="label label-danger">75 khóa học</label>
+                        </td>
+                        <td>
+                            10
+                        </td>
+                        <td>
+                            5
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div class="m-r-10">
+                                    <a class="btn btn-orange btn-info text-white">
+                                        5
+                                    </a>
+                                </div>
+                                <div>
+                                    <h4 class="m-b-0 font-16">
+                                        Võ Văn Hồng
+                                    </h4>
+                                </div>
+                            </div>
+                        </td>
+
+                        <td>
+                            10/02/2000
+                        </td>
+                        <td>
+                            Hong2000
+                        </td>
+                        <td>
+                            <label class="label label-danger">50 khóa học</label>
+                        </td>
+                        <td>
+                            5
+                        </td>
+                        <td>
+                            2
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div class="m-r-10">
+                                    <a class="btn btn-purple btn-info text-white">
+                                        6
+                                    </a>
+                                </div>
+                                <div>
+                                    <h4 class="m-b-0 font-16">
+                                        Nguyễn Huỳnh Nhật Ánh
+                                    </h4>
+                                </div>
+                            </div>
+                        </td>
+
+                        <td>
+                            26/07/2000
+                        </td>
+                        <td>
+                            Anh26072000
+                        </td>
+                        <td>
+                            <label class="label label-danger">30 khóa học</label>
+                        </td>
+                        <td>
+                            7
+                        </td>
+                        <td>
+                            2
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 
 
 
