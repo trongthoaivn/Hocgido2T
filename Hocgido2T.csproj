@@ -264,6 +264,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\LearnHome.js" />
     <Content Include="Scripts\LearnManage.js" />
+    <Content Include="Scripts\LessonManage.js" />
     <Content Include="Scripts\login-admin.js" />
     <Content Include="Scripts\login.js" />
     <Content Include="Scripts\manage-users.js" />

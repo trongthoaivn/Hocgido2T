@@ -1134,5 +1134,32 @@ namespace Hocgido2T.Controllers
 
             }
         }
+        [HttpGet]
+        [Route("api/khbybh")]
+        public IHttpActionResult hkbybh(String mabh)
+        {
+            try
+            {
+
+                var bh = db.BaiHocs.First(e => e.MaBaiHoc.Equals(mabh));
+                var kh = db.KhoaHocs.First(p => p.MaKH.Equals(bh.MaKH));
+                return Json(new
+                {
+                    msg = "ok",
+                    makh = kh.MaKH,
+                    tenkh = kh.TenKH,
+                    tenbh = bh.GioiThieu
+                }); ; 
+            }
+            catch (Exception e)
+            {
+                return Json(new
+                {
+                    msg = "error",
+                    error = e.Message
+                });
+
+            }
+        }
     }
 }

@@ -148,7 +148,7 @@ function get_courses() {
         if (data.msg != "error") {
             var index = 1
             data.msg.forEach(e => {
-                $("#danhsachbh").append('<a href="../Manage/Learn?Courses=' + makh + '&Chapter=' + e.MaBaiHoc+'" type="button" class="list-group-item list-group-item-action">Bài ' + index + ' ' + e.GioiThieu + '</a>')
+                $("#danhsachbh").append('<a href="../Manage/Learn?Courses=' + makh + '&Chapter=' + e.MaBaiHoc+'" type="button" class="list-group-item list-group-item-action">'+ e.GioiThieu + '</a>')
                 index++
             })
            
