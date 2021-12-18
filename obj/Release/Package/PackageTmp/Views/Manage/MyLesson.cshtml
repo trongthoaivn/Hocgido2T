@@ -1,0 +1,29 @@
+﻿@model Hocgido2T.Models.NguoiDung
+@{
+    ViewBag.Title = "MyLesson";
+    Layout = "~/Views/Shared/_Dashboard.cshtml";
+}
+<style>
+    a:hover {
+        color: #3b7ddd;
+    }
+
+    .card:hover {
+        z-index: 1;
+        box-shadow: 0 8px 50px rgba(0,0,0,0.2);
+        transform: scale(1.05);
+        transition: 0.3s all;
+    }
+</style>
+<script src="~/Scripts/LessonManage.js"></script>
+<!--header-->
+<!--card-->
+<div class="page-section banner-info" >
+    <div class="row">
+        
+    </div>
+</div>
+
+<script>
+    var userid = '@Model.MaND'
+</script>
